@@ -1,0 +1,296 @@
+{
+ "crop": "norilsk_tank_wide",
+ "incidence_deg": 41.1,
+ "tank_rc": [
+  476,
+  88
+ ],
+ "tank_winter_coh": 0.45,
+ "row_structures": {
+  "row_117m_SE": {
+   "rc": [
+    481,
+    91
+   ],
+   "latlon": [
+    69.32632,
+    87.93529
+   ],
+   "winter_coh": 0.58,
+   "amp_change_2019_2020_db": -4.3
+  },
+  "row_432m_N": {
+   "rc": [
+    455,
+    83
+   ],
+   "latlon": [
+    69.331,
+    87.93143
+   ],
+   "winter_coh": 0.35,
+   "amp_change_2019_2020_db": 12.7
+  },
+  "row_449m_NW": {
+   "rc": [
+    457,
+    76
+   ],
+   "latlon": [
+    69.33066,
+    87.92787
+   ],
+   "winter_coh": 0.36,
+   "amp_change_2019_2020_db": -0.2
+  }
+ },
+ "osm_tanks": {
+  "osm_204344012": [
+   69.36088,
+   88.12645
+  ],
+  "osm_204344013": [
+   69.36107,
+   88.12443
+  ],
+  "osm_269260672": [
+   69.33114,
+   88.17416
+  ],
+  "osm_269260677": [
+   69.33131,
+   88.17569
+  ],
+  "osm_269260693": [
+   69.33115,
+   88.17315
+  ],
+  "osm_269260704": [
+   69.33203,
+   88.17522
+  ],
+  "osm_269260709": [
+   69.33204,
+   88.17319
+  ],
+  "osm_269260721": [
+   69.3313,
+   88.17671
+  ],
+  "osm_269260731": [
+   69.33076,
+   88.17719
+  ],
+  "osm_269260738": [
+   69.33204,
+   88.17421
+  ],
+  "osm_269260747": [
+   69.33205,
+   88.17269
+  ],
+  "osm_269260754": [
+   69.33078,
+   88.17414
+  ],
+  "osm_269269042": [
+   69.32971,
+   88.25076
+  ],
+  "osm_269269049": [
+   69.32846,
+   88.24916
+  ],
+  "osm_269269062": [
+   69.32828,
+   88.24915
+  ],
+  "osm_269269073": [
+   69.32899,
+   88.25071
+  ],
+  "osm_269269087": [
+   69.32898,
+   88.25274
+  ],
+  "osm_269269105": [
+   69.32969,
+   88.25279
+  ],
+  "osm_269269116": [
+   69.3306,
+   88.25081
+  ]
+ },
+ "n_null": 200,
+ "c1_unwrapping": {
+  "cycle_mm_los": 27.73,
+  "tank_window": {
+   "n": 12,
+   "rms_mm": 3.25,
+   "frac_over_half_cycle": 0.0
+  },
+  "tank_pixels": {
+   "n": 43,
+   "rms_mm": 3.08,
+   "frac_over_half_cycle": 0.0
+  },
+  "null_windows": {
+   "n": 3073,
+   "rms_mm": 3.11,
+   "frac_over_half_cycle": 0.002
+  },
+  "pixel_offsets_over_half_cycle": 0,
+  "pixel_values": 109,
+  "pairs_with_offset_pixel": []
+ },
+ "c2_c4_change_vertical_mm": {
+  "20191206_20200311": {
+   "window_mean": -13.9,
+   "window_median": -13.2,
+   "coherence_weighted": -13.7,
+   "with_height_error_term": -11.5,
+   "height_error_m": 9.8,
+   "jackknife_min": -15.3,
+   "jackknife_max": -12.8,
+   "jackknife_n_disconnected": 1,
+   "most_influential_pair": "20191206_20191230",
+   "without_it": null
+  },
+  "20191206_20200404": {
+   "window_mean": -14.4,
+   "window_median": -13.8,
+   "coherence_weighted": -15.1,
+   "with_height_error_term": -13.9,
+   "height_error_m": 9.8,
+   "jackknife_min": -20.5,
+   "jackknife_max": -7.8,
+   "jackknife_n_disconnected": 1,
+   "most_influential_pair": "20191206_20191230",
+   "without_it": null
+  }
+ },
+ "c5_intervals": {
+  "20170619_20171005": {
+   "tank5": -13.7,
+   "row": {
+    "row_117m_SE": -11.3,
+    "row_432m_N": -19.6,
+    "row_449m_NW": -17.8
+   },
+   "osm_tanks_mean": -3.3,
+   "osm_tanks_sd": 3.4,
+   "osm_tanks_n": 19,
+   "tanks_and_row_as_low_or_lower": 3,
+   "tanks_and_row_n": 22,
+   "null_mean": -3.3,
+   "null_sd": 5.4,
+   "null_n": 199,
+   "z": -1.93,
+   "p": 0.03
+  },
+  "20171029_20171228": {
+   "tank5": -7.0,
+   "row": {
+    "row_117m_SE": 1.9,
+    "row_432m_N": null,
+    "row_449m_NW": null
+   },
+   "osm_tanks_mean": 0.7,
+   "osm_tanks_sd": 5.5,
+   "osm_tanks_n": 10,
+   "tanks_and_row_as_low_or_lower": 2,
+   "tanks_and_row_n": 11,
+   "null_mean": 1.1,
+   "null_sd": 5.4,
+   "null_n": 173,
+   "z": -1.52,
+   "p": 0.121
+  },
+  "20180614_20190329": {
+   "tank5": 19.0,
+   "row": {
+    "row_117m_SE": 16.9,
+    "row_432m_N": null,
+    "row_449m_NW": null
+   },
+   "osm_tanks_mean": null,
+   "osm_tanks_sd": null,
+   "osm_tanks_n": 0,
+   "tanks_and_row_as_low_or_lower": 1,
+   "tanks_and_row_n": 1,
+   "null_mean": 4.4,
+   "null_sd": 7.4,
+   "null_n": 128,
+   "z": 1.98,
+   "p": 0.039
+  },
+  "20190609_20191124": {
+   "tank5": -1.2,
+   "row": {
+    "row_117m_SE": -5.0,
+    "row_432m_N": null,
+    "row_449m_NW": null
+   },
+   "osm_tanks_mean": -12.7,
+   "osm_tanks_sd": 4.1,
+   "osm_tanks_n": 7,
+   "tanks_and_row_as_low_or_lower": 8,
+   "tanks_and_row_n": 8,
+   "null_mean": 3.4,
+   "null_sd": 6.2,
+   "null_n": 159,
+   "z": -0.74,
+   "p": 0.434
+  },
+  "20191206_20200404": {
+   "tank5": -14.4,
+   "row": {
+    "row_117m_SE": 1.6,
+    "row_432m_N": null,
+    "row_449m_NW": null
+   },
+   "osm_tanks_mean": -2.9,
+   "osm_tanks_sd": 4.8,
+   "osm_tanks_n": 19,
+   "tanks_and_row_as_low_or_lower": 0,
+   "tanks_and_row_n": 20,
+   "null_mean": 2.1,
+   "null_sd": 3.9,
+   "null_n": 165,
+   "z": -4.19,
+   "p": 0.0
+  }
+ },
+ "c7_weather": {
+  "2017-18": {
+   "from": "20171204",
+   "to": "20180403",
+   "snowfall_cm": 141.3,
+   "snow_depth_change_cm": 76.0,
+   "blowing_snow_h": 554,
+   "max_wind_ms": 13.2,
+   "blowing_from_deg": 171
+  },
+  "2018-19": {
+   "from": "20181211",
+   "to": "20190422",
+   "snowfall_cm": 176.7,
+   "snow_depth_change_cm": 47.0,
+   "blowing_snow_h": 866,
+   "max_wind_ms": 14.5,
+   "blowing_from_deg": 177,
+   "r_tank_step_vs_blowing_h": 0.56
+  },
+  "2019-20": {
+   "from": "20191206",
+   "to": "20200428",
+   "snowfall_cm": 195.8,
+   "snow_depth_change_cm": 32.0,
+   "blowing_snow_h": 1096,
+   "max_wind_ms": 14.4,
+   "blowing_from_deg": 171,
+   "r_tank_step_vs_blowing_h": -0.09
+  }
+ }
+}

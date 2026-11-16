@@ -1,0 +1,293 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Norilsk Ground Truth</title>
+<meta name="description" content="Is the ground under Norilsk sinking because permafrost is thawing? Sentinel-1 and NISAR radar, summers 2020, 2025 and 2026.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<link href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css" rel="stylesheet">
+<link href="style.css" rel="stylesheet">
+</head>
+<body>
+
+<nav class="topnav" aria-label="Sections">
+  <a class="brand" href="#top"><span class="brand-dot"></span>Norilsk Ground Truth</a>
+  <div class="navlinks">
+    <a href="#question">Question</a>
+    <a href="#method">Method</a>
+    <a href="#explore">Map</a>
+    <a href="#result">Result</a>
+    <a href="#local">Pattern</a>
+    <a href="#verdict">Verdict</a>
+    <a href="#limits">Limits</a>
+  </div>
+</nav>
+
+<!-- 1 HERO -->
+<header class="hero" id="top">
+  <div class="hero-bg" role="img" aria-label="Sentinel-2 image of the Norilsk industrial area, 31 May 2020"></div>
+  <div class="hero-inner">
+    <p class="eyebrow">NASA Space Apps 2026 · Dancing with the SARs</p>
+    <h1>Is the ground under Norilsk <em>sinking</em>?</h1>
+    <p class="lede">In May 2020 a fuel tank at a Norilsk power plant collapsed and 21,000 tonnes of diesel reached the Arctic rivers. The operator blamed thawing permafrost. We used satellite radar to test whether the ground is really giving way, and where.</p>
+    <div class="stat-row" id="hero-stats"></div>
+    <a class="scroll-cue" href="#question">Follow the evidence <span aria-hidden="true">↓</span></a>
+  </div>
+</header>
+
+<main>
+
+<!-- 2 THE EVENT -->
+<section class="section" id="question">
+  <div class="wrap two-col">
+    <div>
+      <p class="kicker">29 May 2020</p>
+      <h2>A tank fails. Three explanations compete.</h2>
+      <p>Tank no. 5 at Norilsk Heat and Power Plant 3 (TPP-3) lost its foundation. Diesel ran down the Daldykan river into the Ambarnaya and towards Lake Pyasino. It became one of the largest oil spills ever recorded in the Arctic.</p>
+      <p>The official explanation was that the permafrost under the tank had thawed. If that is true, it is not a story about one tank: Norilsk is a city of 175,000 people built on frozen ground. So we asked a broader question: <strong>is the ground under Norilsk subsiding in a widespread way, and why?</strong></p>
+    </div>
+    <figure class="photo">
+      <img id="s2-img" src="data/s2_spill_20200531.jpg" alt="Sentinel-2 true-colour image, 31 May 2020: TPP-3 at the bottom, the Daldykan valley running north towards the Ambarnaya and Lake Pyasino" loading="lazy">
+      <figcaption>Sentinel-2, 31 May 2020, two days after the collapse. TPP-3 at the bottom; the Daldykan runs north to the Ambarnaya delta. <span class="credit">Contains modified Copernicus Sentinel data 2020.</span></figcaption>
+    </figure>
+  </div>
+
+  <div class="wrap">
+    <h3 class="sub">Three hypotheses, three fingerprints in the ground</h3>
+    <div class="hyp-grid">
+      <article class="hyp" data-h="climatic">
+        <div class="hyp-head"><span class="hyp-num">A</span><h4>Climate is thawing everything</h4></div>
+        <svg class="hyp-svg" viewBox="0 0 200 90" aria-hidden="true"><line x1="10" y1="10" x2="190" y2="10" class="ax"/><path d="M10 10 C70 30 120 55 190 70" class="l-ind"/><path d="M10 10 C70 28 120 50 190 64" class="l-ctl"/></svg>
+        <p>Natural tundra far from any building subsides too, and it follows the summer warmth. Industry and tundra move together.</p>
+        <div class="hyp-verdict" data-for="climatic">awaiting data</div>
+      </article>
+      <article class="hyp" data-h="anthropogenic">
+        <div class="hyp-head"><span class="hyp-num">B</span><h4>The city is thawing its own ground</h4></div>
+        <svg class="hyp-svg" viewBox="0 0 200 90" aria-hidden="true"><line x1="10" y1="10" x2="190" y2="10" class="ax"/><path d="M10 10 C70 40 120 65 190 80" class="l-ind"/><path d="M10 10 C70 14 120 18 190 22" class="l-ctl"/></svg>
+        <p>Heat from buildings, pipes and plants thaws the ground beneath them. Industrial zones sink much faster than tundra nearby.</p>
+        <div class="hyp-verdict" data-for="anthropogenic">awaiting data</div>
+      </article>
+      <article class="hyp" data-h="structural">
+        <div class="hyp-head"><span class="hyp-num">C</span><h4>The ground is fine, the tank was not</h4></div>
+        <svg class="hyp-svg" viewBox="0 0 200 90" aria-hidden="true"><line x1="10" y1="10" x2="190" y2="10" class="ax"/><path d="M10 12 C70 13 120 11 190 13" class="l-ind"/><path d="M10 11 C70 12 120 10 190 12" class="l-ctl"/></svg>
+        <p>No significant seasonal subsidence anywhere. The failure was corrosion or a construction defect: consistent with, though not proof of, a structural cause.</p>
+        <div class="hyp-verdict" data-for="structural">awaiting data</div>
+      </article>
+    </div>
+    <p class="legend-inline"><span class="sw sw-ind"></span>industrial ground <span class="sw sw-ctl"></span>natural tundra · expected vertical motion through one summer</p>
+  </div>
+</section>
+
+<!-- 3 METHOD -->
+<section class="section alt" id="method">
+  <div class="wrap">
+    <p class="kicker">Method</p>
+    <h2>Measuring millimetres from 700 km up</h2>
+    <div class="steps">
+      <div class="step">
+        <svg viewBox="0 0 220 140" class="step-svg" aria-hidden="true">
+          <g class="sat"><rect x="150" y="12" width="26" height="14" rx="2"/><rect x="128" y="16" width="18" height="6"/><rect x="180" y="16" width="18" height="6"/></g>
+          <path class="beam" d="M160 28 L40 120"/>
+          <path class="ground" d="M10 120 H210"/>
+          <path class="wave" d="M150 36 q-6 6 -12 4 t-12 4 t-12 4 t-12 4 t-12 4 t-12 4 t-12 4 t-12 4 t-12 4"/>
+        </svg>
+        <h4>1 · Radar pings the ground</h4>
+        <p>Sentinel-1 (C-band, 5.5 cm) and NISAR (L-band, 24 cm) send microwaves that see through cloud and the polar night, and record the echo's <em>phase</em>.</p>
+      </div>
+      <div class="step">
+        <svg viewBox="0 0 220 140" class="step-svg" aria-hidden="true">
+          <path class="ground" d="M10 100 H210"/>
+          <path class="ground2" d="M10 112 H80 Q110 124 140 112 H210"/>
+          <path class="wave" d="M30 30 q8 -10 16 0 t16 0 t16 0 t16 0 t16 0 t16 0 t16 0 t16 0 t16 0 t16 0"/>
+          <path class="wave2" d="M30 52 q8 -10 16 0 t16 0 t16 0 t16 0 t16 0 t16 0 t16 0 t16 0 t16 0 t16 0"/>
+          <text x="112" y="136" class="lbl">12 days later</text>
+        </svg>
+        <h4>2 · Compare two passes</h4>
+        <p>When the ground drops by a few millimetres, the echo arrives slightly later. The phase difference between passes 12 days apart (an <em>interferogram</em>) maps that motion.</p>
+      </div>
+      <div class="step">
+        <svg viewBox="0 0 220 140" class="step-svg" aria-hidden="true">
+          <line x1="20" y1="20" x2="20" y2="120" class="ax"/><line x1="20" y1="20" x2="210" y2="20" class="ax"/>
+          <path d="M20 20 C70 50 120 80 200 100" class="l-ind"/>
+          <circle cx="60" cy="42" r="3.5" class="dot"/><circle cx="100" cy="66" r="3.5" class="dot"/><circle cx="140" cy="82" r="3.5" class="dot"/><circle cx="180" cy="95" r="3.5" class="dot"/>
+          <text x="118" y="14" class="lbl">√ thawing degree-days →</text>
+        </svg>
+        <h4>3 · Test against thaw physics</h4>
+        <p>Thaw depth grows with the square root of accumulated warmth (Stefan's law). If thaw drives the motion, subsidence lines up with <strong>√TDD</strong>. Its slope tells us how much each zone sinks per unit of warmth.</p>
+      </div>
+    </div>
+
+    <div class="design-box">
+      <h3 class="sub">The controlled comparison</h3>
+      <p>We compare <span class="z z-industrial">industrial ground</span> with two <span class="z z-control_NW">natural</span> <span class="z z-control_SE">tundra</span> controls chosen to match the city's elevation and slope, excluding floodplains and wetlands. A separate zone covers the <span class="z z-accident">TPP-3 site</span>. Everything is measured relative to <span class="z z-reference">bedrock on the Kharaelakh plateau</span>, which does not thaw, kept 3 km from the underground mines of Talnakh.</p>
+    </div>
+
+    <h3 class="sub">What radar exists for Norilsk</h3>
+    <div id="timeline" class="timeline" role="img" aria-label="Data availability 2017 to 2026"></div>
+    <p class="note" id="timeline-note"></p>
+  </div>
+</section>
+
+<!-- 4 MAP -->
+<section class="section map-section" id="explore">
+  <div class="wrap">
+    <p class="kicker">Explore</p>
+    <h2>Where the ground moved</h2>
+    <p class="intro">Red sinks, blue rises. <b>Repeats ★</b> (default) shows only the local motion that has the same sign in 2020 and 2025, relative to the surrounding ~2 km: the reproducible part of the signal. The S1 and NISAR layers are relative to plateau bedrock and include atmosphere. Click a zone to see its summer.</p>
+  </div>
+  <div class="map-shell">
+    <div id="map" aria-label="Interactive map of displacement around Norilsk"></div>
+    <aside class="map-panel">
+      <div class="ctl-group">
+        <div class="ctl-label">Layer</div>
+        <div class="seg" id="layer-seg" role="radiogroup" aria-label="Displacement layer"></div>
+        <div class="layer-detail" id="layer-detail"></div>
+      </div>
+      <div class="ctl-group">
+        <div class="ctl-label">Displacement</div>
+        <div class="cbar"><div class="cbar-grad"></div><div class="cbar-ticks" id="cbar-ticks"></div></div>
+      </div>
+      <div class="ctl-group">
+        <div class="ctl-label">Zones</div>
+        <ul class="zone-legend" id="zone-legend"></ul>
+      </div>
+      <div class="ctl-group">
+        <div class="ctl-label">Basemap</div>
+        <div class="seg small" id="base-seg">
+          <button data-base="sat" aria-pressed="true">Satellite</button>
+          <button data-base="dark" aria-pressed="false">Dark</button>
+        </div>
+        <label class="chk"><input type="checkbox" id="opacity" checked> Show displacement</label>
+      </div>
+      <div class="zone-card" id="zone-card" hidden></div>
+    </aside>
+  </div>
+</section>
+
+<!-- 5 RESULT -->
+<section class="section" id="result">
+  <div class="wrap">
+    <p class="kicker">Result</p>
+    <h2 id="result-title">Does the ground follow the thaw?</h2>
+    <p class="intro" id="result-lede">Each point is the mean vertical motion of one zone on one Sentinel-1 date, plotted against the square root of the warmth accumulated so far that year.</p>
+    <div class="tabs" id="summer-tabs" role="tablist"></div>
+    <div class="chart-grid">
+      <figure class="card">
+        <figcaption class="card-title">Vertical displacement vs √TDD <span class="muted" id="ch1-sub"></span></figcaption>
+        <div id="chart-scatter" class="chart"></div>
+        <div class="chart-legend" id="ch1-legend"></div>
+      </figure>
+      <figure class="card">
+        <figcaption class="card-title">Does one zone sink faster? (paired Δ slope, ±2σ)</figcaption>
+        <div id="chart-slopes" class="chart"></div>
+        <p class="card-note">Slope of the per-date difference between zones against √TDD. Left of zero: the first zone sinks more per unit of thaw. Bars crossing zero: no detectable difference.</p>
+      </figure>
+    </div>
+    <div class="table-toggle"><button id="show-table" aria-expanded="false">Show the numbers</button></div>
+    <div id="fit-table" class="fit-table" hidden></div>
+  </div>
+</section>
+
+<!-- 5b LOCAL, REPRODUCIBLE -->
+<section class="section alt" id="local">
+  <div class="wrap">
+    <p class="kicker">The signal that survives</p>
+    <h2>The pattern that repeats, five years apart</h2>
+    <p class="intro">Water vapour moves the whole lowland by centimetres, but it is different on every pass and every summer. Ground that sinks because of what it is made of sinks in the same place every summer. So we stopped averaging big zones and compared each 30 m pixel with its own ~2 km neighbourhood, separately in 2020 (Sentinel-1A) and 2025 (Sentinel-1C), and asked whether the two maps agree.</p>
+    <div class="stat-row local-stats" id="local-stats"></div>
+    <div class="chart-grid">
+      <figure class="card">
+        <figcaption class="card-title">Wetlands sink along the thaw curve, both summers <span class="muted">· each line: one land-cover class vs its surroundings</span></figcaption>
+        <div id="chart-local-series" class="chart"></div>
+        <p class="card-note">Every date is high-passed (2 km), so shared atmosphere is gone. Wetland ground (ESA WorldCover class 90, 48 km²) follows the square root of the thawing degree-days, the shape Stefan's law predicts for a deepening thaw front, in both summers. Other ground types move by less than 2–3 mm.</p>
+      </figure>
+      <figure class="card">
+        <figcaption class="card-title">Who sinks more than the ground around it?</figcaption>
+        <div id="chart-local-lc" class="chart"></div>
+        <p class="card-note">Wetlands are the only class that sinks relative to its surroundings, in both summers. Built-up ground, bare rock and forest sink <em>less</em> than the ground around them.</p>
+      </figure>
+    </div>
+    <h3 class="sub">Industrial sites: the same answer, site by site</h3>
+    <p>For each OpenStreetMap industrial site, quarry and landfill we compared the inside with a ring around it. The sites that behave the same way in both summers are mostly the big plants, and they sink <strong>less</strong> than their surroundings, TPP-3 included. Only a few small sites and the landfills sink more.</p>
+    <div class="fit-table" id="local-fac"></div>
+  </div>
+</section>
+
+<!-- 6 VERDICT -->
+<section class="section alt" id="verdict">
+  <div class="wrap">
+    <p class="kicker">Verdict</p>
+    <h2 id="verdict-title">What the evidence supports</h2>
+    <div class="verdict-grid" id="verdict-grid"></div>
+    <div class="callout" id="verdict-text"></div>
+  </div>
+</section>
+
+<!-- 7 NISAR -->
+<section class="section" id="nisar">
+  <div class="wrap two-col">
+    <div>
+      <p class="kicker">Cross-check · NISAR 2026</p>
+      <h2>A second radar, a harder question</h2>
+      <p>Sentinel-1 sees the ground from one direction only, so we assumed the motion is vertical. NISAR's first science summer gives us two viewing directions (ascending track 111 and descending track 6). Combined, they separate vertical from east-west motion and test that assumption.</p>
+      <div id="nisar-stats" class="nisar-stats"></div>
+    </div>
+    <div class="card" id="nisar-card"></div>
+  </div>
+</section>
+
+<!-- 8 LIMITS -->
+<section class="section alt" id="limits">
+  <div class="wrap">
+    <p class="kicker">Honesty section</p>
+    <h2>What this cannot tell you</h2>
+    <div class="limits-grid">
+      <div class="limit"><h4>No direct multi-year trend</h4><p>Snow destroys the radar signal every winter, and Sentinel-1 recorded <strong>nothing</strong> over Norilsk in 2022–2024. We compare summers; we do not measure the cumulative sinking between them.</p></div>
+      <div class="limit"><h4>A tank is one bright dot</h4><p>At 40 m resolution we cannot see one tank's foundation tilt. We measure the ground around TPP-3, not tank no. 5 itself.</p></div>
+      <div class="limit"><h4>Atmosphere and elevation</h4><p>The bedrock reference sits ~550 m above the city. Changes in water vapour between passes can mimic uniform lowland sinking. Comparisons between zones at the same height cancel this; absolute rates do not.</p></div>
+      <div class="limit"><h4>Error bars are optimistic</h4><p>They include scatter between dates but not atmospheric noise shared across a zone. Our synthetic test shows zone differences are recovered well; small zones (TPP-3, 3 km²) are noisy.</p></div>
+      <div class="limit"><h4>Vertical is assumed for Sentinel-1</h4><p>Line-of-sight motion is converted to vertical on slopes under 5° only. NISAR can test this, but four 12-day pairs are still noisy.</p></div>
+      <div class="limit"><h4>Two summers, one model</h4><p>2020 was an exceptionally warm year; 2025 colder. Two summers can reveal a difference between zones, not a climate trend.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 9 METHODS -->
+<section class="section" id="data">
+  <div class="wrap">
+    <p class="kicker">Data & reproducibility</p>
+    <h2>Every number on this page is reproducible</h2>
+    <div class="methods">
+      <ul class="sources">
+        <li><b>Sentinel-1</b> IW SLC bursts, path 136 descending, processed to interferograms with ASF HyP3 (ISCE2 multi-burst, 40 m); small-baseline inversion per summer.</li>
+        <li><b>NISAR</b> L2 GUNW (provisional), tracks 111 A and 6 D, ionosphere and troposphere screens applied; NASA/ISRO via ASF DAAC.</li>
+        <li><b>ERA5-Land</b> daily air temperature → thawing degree-days (Copernicus C3S, via Open-Meteo).</li>
+        <li><b>Zones</b>: Copernicus DEM 30 m, ESA WorldCover 2021, OpenStreetMap land use and mine shafts.</li>
+        <li><b>Context</b>: Sentinel-2 L2A (Microsoft Planetary Computer).</li>
+      </ul>
+      <div class="repro">
+        <pre><code>git clone https://github.com/MatteoPostiferi999/Nasa
+./run_v0.sh              # time series → analysis → web files
+./run_v0.sh --synthetic  # same chain on a known signal</code></pre>
+        <p class="muted" id="generated"></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="foot">
+  <p>Norilsk Ground Truth · NASA Space Apps Challenge 2026. Not affiliated with NASA, ESA, ISRO or Nornickel. Map tiles © Esri, Maxar, Earthstar Geographics; © CARTO, © OpenStreetMap contributors.</p>
+</footer>
+
+<div class="tooltip" id="tooltip" role="status" aria-live="polite"></div>
+
+<script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

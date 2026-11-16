@@ -1,0 +1,685 @@
+{
+ "location": {
+  "published": [
+   69.3272,
+   87.9339
+  ],
+  "published_winter_coh": 0.45,
+  "bright_px_change_2019_2020_p5_p95_db": [
+   -2.0,
+   2.8
+  ],
+  "loss_1": {
+   "latlon": [
+    69.32814,
+    87.92928
+   ],
+   "row_col": [
+    295,
+    291
+   ],
+   "offset_m": 206,
+   "amp_change_2019_2020_db": -7.7,
+   "amp_change_2018_2019_db": 1.0,
+   "percentile_among_bright_px": 0.05,
+   "winter_coh": 0.44
+  },
+  "loss_2": {
+   "latlon": [
+    69.32528,
+    87.92865
+   ],
+   "row_col": [
+    311,
+    290
+   ],
+   "offset_m": 297,
+   "amp_change_2019_2020_db": -7.3,
+   "amp_change_2018_2019_db": 2.0,
+   "percentile_among_bright_px": 0.06,
+   "winter_coh": 0.33
+  },
+  "loss_3": {
+   "latlon": [
+    69.32686,
+    87.93379
+   ],
+   "row_col": [
+    302,
+    300
+   ],
+   "offset_m": 40,
+   "amp_change_2019_2020_db": -6.5,
+   "amp_change_2018_2019_db": 5.4,
+   "percentile_among_bright_px": 0.11,
+   "winter_coh": 0.45
+  },
+  "stable_px_fraction": 0.151
+ },
+ "incidence_deg": 41.3,
+ "last_date_before": "20200510",
+ "n_pairs_before": 219,
+ "n_null_points": 200,
+ "intervals": [
+  {
+   "from": "20170619",
+   "to": "20171005",
+   "days": 108,
+   "zhang_rate_expected_mm": -10.3
+  },
+  {
+   "from": "20171029",
+   "to": "20171228",
+   "days": 60,
+   "zhang_rate_expected_mm": -5.7
+  },
+  {
+   "from": "20180614",
+   "to": "20190329",
+   "days": 288,
+   "zhang_rate_expected_mm": -27.6
+  },
+  {
+   "from": "20190609",
+   "to": "20191124",
+   "days": 168,
+   "zhang_rate_expected_mm": -16.1
+  },
+  {
+   "from": "20191206",
+   "to": "20200404",
+   "days": 120,
+   "zhang_rate_expected_mm": -11.5
+  }
+ ],
+ "points": {
+  "loss_1": {
+   "segments": [
+    {
+     "from": "20170619",
+     "to": "20171005",
+     "n_dates": 10,
+     "rms_mm": 2.2
+    },
+    {
+     "from": "20171029",
+     "to": "20171228",
+     "n_dates": 5,
+     "rms_mm": 0.0
+    },
+    {
+     "from": "20180614",
+     "to": "20190329",
+     "n_dates": 25,
+     "rms_mm": 0.8
+    },
+    {
+     "from": "20190609",
+     "to": "20191019",
+     "n_dates": 11,
+     "rms_mm": 2.3
+    },
+    {
+     "from": "20191031",
+     "to": "20191124",
+     "n_dates": 3,
+     "rms_mm": 0.0
+    },
+    {
+     "from": "20191206",
+     "to": "20200311",
+     "n_dates": 8,
+     "rms_mm": 1.3
+    }
+   ],
+   "vs_null": {
+    "change_20170619_20171005_mm": {
+     "value": -14.8,
+     "null_mean": -3.2,
+     "null_std": 5.7,
+     "n_null": 171,
+     "z": -2.04,
+     "p_two_sided": 0.035
+    },
+    "change_20171029_20171228_mm": {
+     "value": 3.7,
+     "null_mean": -0.1,
+     "null_std": 5.6,
+     "n_null": 93,
+     "z": 0.66,
+     "p_two_sided": 0.548
+    },
+    "change_20180614_20190329_mm": {
+     "value": 16.0,
+     "null_mean": 6.8,
+     "null_std": 9.1,
+     "n_null": 56,
+     "z": 1.01,
+     "p_two_sided": 0.304
+    },
+    "change_20190609_20191124_mm": null,
+    "change_20191206_20200404_mm": null,
+    "summer_2017_mm": {
+     "value": -5.6,
+     "null_mean": -5.7,
+     "null_std": 5.7,
+     "n_null": 195,
+     "z": 0.02,
+     "p_two_sided": 0.979
+    },
+    "summer_2018_mm": {
+     "value": 1.8,
+     "null_mean": 1.8,
+     "null_std": 5.0,
+     "n_null": 195,
+     "z": 0.0,
+     "p_two_sided": 1.0
+    },
+    "summer_2019_mm": {
+     "value": -4.4,
+     "null_mean": 2.5,
+     "null_std": 6.6,
+     "n_null": 195,
+     "z": -1.05,
+     "p_two_sided": 0.246
+    },
+    "winter_coh_2017-18": {
+     "value": -0.236,
+     "null_mean": -0.284,
+     "null_std": 0.084,
+     "n_null": 195,
+     "z": 0.57,
+     "p_two_sided": 0.549
+    },
+    "winter_coh_2018-19": {
+     "value": -0.211,
+     "null_mean": -0.26,
+     "null_std": 0.053,
+     "n_null": 195,
+     "z": 0.93,
+     "p_two_sided": 0.369
+    },
+    "winter_coh_2019-20": {
+     "value": -0.197,
+     "null_mean": -0.243,
+     "null_std": 0.061,
+     "n_null": 195,
+     "z": 0.74,
+     "p_two_sided": 0.518
+    }
+   }
+  },
+  "loss_2": {
+   "segments": [
+    {
+     "from": "20170619",
+     "to": "20171005",
+     "n_dates": 10,
+     "rms_mm": 1.5
+    },
+    {
+     "from": "20180614",
+     "to": "20181024",
+     "n_dates": 12,
+     "rms_mm": 5.3
+    },
+    {
+     "from": "20181105",
+     "to": "20190209",
+     "n_dates": 9,
+     "rms_mm": 3.7
+    },
+    {
+     "from": "20190516",
+     "to": "20191019",
+     "n_dates": 13,
+     "rms_mm": 1.2
+    },
+    {
+     "from": "20200111",
+     "to": "20200311",
+     "n_dates": 6,
+     "rms_mm": 1.9
+    }
+   ],
+   "vs_null": {
+    "change_20170619_20171005_mm": {
+     "value": -14.6,
+     "null_mean": -3.2,
+     "null_std": 5.7,
+     "n_null": 171,
+     "z": -2.0,
+     "p_two_sided": 0.035
+    },
+    "change_20171029_20171228_mm": null,
+    "change_20180614_20190329_mm": null,
+    "change_20190609_20191124_mm": null,
+    "change_20191206_20200404_mm": null,
+    "summer_2017_mm": {
+     "value": -6.2,
+     "null_mean": -5.7,
+     "null_std": 5.7,
+     "n_null": 195,
+     "z": -0.1,
+     "p_two_sided": 0.933
+    },
+    "summer_2018_mm": {
+     "value": 3.1,
+     "null_mean": 1.8,
+     "null_std": 5.0,
+     "n_null": 195,
+     "z": 0.26,
+     "p_two_sided": 0.8
+    },
+    "summer_2019_mm": {
+     "value": 9.1,
+     "null_mean": 2.5,
+     "null_std": 6.6,
+     "n_null": 195,
+     "z": 0.99,
+     "p_two_sided": 0.272
+    },
+    "winter_coh_2017-18": {
+     "value": -0.262,
+     "null_mean": -0.284,
+     "null_std": 0.084,
+     "n_null": 195,
+     "z": 0.26,
+     "p_two_sided": 0.785
+    },
+    "winter_coh_2018-19": {
+     "value": -0.355,
+     "null_mean": -0.26,
+     "null_std": 0.053,
+     "n_null": 195,
+     "z": -1.77,
+     "p_two_sided": 0.062
+    },
+    "winter_coh_2019-20": {
+     "value": -0.301,
+     "null_mean": -0.243,
+     "null_std": 0.061,
+     "n_null": 195,
+     "z": -0.95,
+     "p_two_sided": 0.415
+    }
+   }
+  },
+  "loss_3": {
+   "segments": [
+    {
+     "from": "20170619",
+     "to": "20171005",
+     "n_dates": 10,
+     "rms_mm": 1.4
+    },
+    {
+     "from": "20171029",
+     "to": "20171228",
+     "n_dates": 5,
+     "rms_mm": 0.0
+    },
+    {
+     "from": "20180614",
+     "to": "20190329",
+     "n_dates": 25,
+     "rms_mm": 1.1
+    },
+    {
+     "from": "20190516",
+     "to": "20191124",
+     "n_dates": 16,
+     "rms_mm": 1.9
+    },
+    {
+     "from": "20191206",
+     "to": "20200404",
+     "n_dates": 10,
+     "rms_mm": 3.5
+    }
+   ],
+   "vs_null": {
+    "change_20170619_20171005_mm": {
+     "value": -14.9,
+     "null_mean": -3.2,
+     "null_std": 5.7,
+     "n_null": 171,
+     "z": -2.06,
+     "p_two_sided": 0.035
+    },
+    "change_20171029_20171228_mm": {
+     "value": -1.9,
+     "null_mean": -0.1,
+     "null_std": 5.6,
+     "n_null": 93,
+     "z": -0.33,
+     "p_two_sided": 0.763
+    },
+    "change_20180614_20190329_mm": {
+     "value": 23.9,
+     "null_mean": 6.8,
+     "null_std": 9.1,
+     "n_null": 56,
+     "z": 1.87,
+     "p_two_sided": 0.054
+    },
+    "change_20190609_20191124_mm": {
+     "value": -0.9,
+     "null_mean": 3.2,
+     "null_std": 8.9,
+     "n_null": 89,
+     "z": -0.46,
+     "p_two_sided": 0.64
+    },
+    "change_20191206_20200404_mm": {
+     "value": -11.6,
+     "null_mean": 0.9,
+     "null_std": 5.6,
+     "n_null": 121,
+     "z": -2.24,
+     "p_two_sided": 0.041
+    },
+    "summer_2017_mm": {
+     "value": -5.4,
+     "null_mean": -5.7,
+     "null_std": 5.7,
+     "n_null": 195,
+     "z": 0.05,
+     "p_two_sided": 0.964
+    },
+    "summer_2018_mm": {
+     "value": -2.2,
+     "null_mean": 1.8,
+     "null_std": 5.0,
+     "n_null": 195,
+     "z": -0.8,
+     "p_two_sided": 0.467
+    },
+    "summer_2019_mm": {
+     "value": 6.5,
+     "null_mean": 2.5,
+     "null_std": 6.6,
+     "n_null": 195,
+     "z": 0.6,
+     "p_two_sided": 0.518
+    },
+    "winter_coh_2017-18": {
+     "value": -0.142,
+     "null_mean": -0.284,
+     "null_std": 0.084,
+     "n_null": 195,
+     "z": 1.69,
+     "p_two_sided": 0.077
+    },
+    "winter_coh_2018-19": {
+     "value": -0.186,
+     "null_mean": -0.26,
+     "null_std": 0.053,
+     "n_null": 195,
+     "z": 1.39,
+     "p_two_sided": 0.195
+    },
+    "winter_coh_2019-20": {
+     "value": -0.234,
+     "null_mean": -0.243,
+     "null_std": 0.061,
+     "n_null": 195,
+     "z": 0.14,
+     "p_two_sided": 0.867
+    }
+   }
+  },
+  "published": {
+   "segments": [
+    {
+     "from": "20170619",
+     "to": "20171005",
+     "n_dates": 10,
+     "rms_mm": 0.8
+    },
+    {
+     "from": "20171029",
+     "to": "20171228",
+     "n_dates": 5,
+     "rms_mm": 0.0
+    },
+    {
+     "from": "20180614",
+     "to": "20190329",
+     "n_dates": 25,
+     "rms_mm": 0.9
+    },
+    {
+     "from": "20190609",
+     "to": "20191124",
+     "n_dates": 14,
+     "rms_mm": 1.9
+    },
+    {
+     "from": "20191206",
+     "to": "20200404",
+     "n_dates": 10,
+     "rms_mm": 2.3
+    }
+   ],
+   "vs_null": {
+    "change_20170619_20171005_mm": {
+     "value": -13.8,
+     "null_mean": -3.2,
+     "null_std": 5.7,
+     "n_null": 171,
+     "z": -1.86,
+     "p_two_sided": 0.053
+    },
+    "change_20171029_20171228_mm": {
+     "value": -7.0,
+     "null_mean": -0.1,
+     "null_std": 5.6,
+     "n_null": 93,
+     "z": -1.25,
+     "p_two_sided": 0.151
+    },
+    "change_20180614_20190329_mm": {
+     "value": 19.1,
+     "null_mean": 6.8,
+     "null_std": 9.1,
+     "n_null": 56,
+     "z": 1.35,
+     "p_two_sided": 0.232
+    },
+    "change_20190609_20191124_mm": {
+     "value": -1.2,
+     "null_mean": 3.2,
+     "null_std": 8.9,
+     "n_null": 89,
+     "z": -0.49,
+     "p_two_sided": 0.607
+    },
+    "change_20191206_20200404_mm": {
+     "value": -14.4,
+     "null_mean": 0.9,
+     "null_std": 5.6,
+     "n_null": 121,
+     "z": -2.75,
+     "p_two_sided": 0.008
+    },
+    "summer_2017_mm": {
+     "value": -5.1,
+     "null_mean": -5.7,
+     "null_std": 5.7,
+     "n_null": 195,
+     "z": 0.11,
+     "p_two_sided": 0.923
+    },
+    "summer_2018_mm": {
+     "value": -1.4,
+     "null_mean": 1.8,
+     "null_std": 5.0,
+     "n_null": 195,
+     "z": -0.64,
+     "p_two_sided": 0.564
+    },
+    "summer_2019_mm": {
+     "value": 5.3,
+     "null_mean": 2.5,
+     "null_std": 6.6,
+     "n_null": 195,
+     "z": 0.42,
+     "p_two_sided": 0.651
+    },
+    "winter_coh_2017-18": {
+     "value": -0.17,
+     "null_mean": -0.284,
+     "null_std": 0.084,
+     "n_null": 195,
+     "z": 1.35,
+     "p_two_sided": 0.221
+    },
+    "winter_coh_2018-19": {
+     "value": -0.177,
+     "null_mean": -0.26,
+     "null_std": 0.053,
+     "n_null": 195,
+     "z": 1.56,
+     "p_two_sided": 0.133
+    },
+    "winter_coh_2019-20": {
+     "value": -0.241,
+     "null_mean": -0.243,
+     "null_std": 0.061,
+     "n_null": 195,
+     "z": 0.03,
+     "p_two_sided": 0.979
+    }
+   }
+  }
+ },
+ "summers_40m": {
+  "2017": {
+   "dates": [
+    "20170701",
+    "20170923"
+   ],
+   "tpp3_plant": {
+    "inside_minus_ring_mm": 6.0,
+    "coverage": 0.87,
+    "null_std": 3.9,
+    "z": 1.6
+   },
+   "tank_window": {
+    "inside_minus_ring_mm": null,
+    "coverage": 0.0,
+    "null_std": 4.8,
+    "z": null
+   }
+  },
+  "2018": {
+   "dates": [
+    "20180626",
+    "20180930"
+   ],
+   "tpp3_plant": {
+    "inside_minus_ring_mm": 0.9,
+    "coverage": 0.8,
+    "null_std": 3.5,
+    "z": 0.29
+   },
+   "tank_window": {
+    "inside_minus_ring_mm": null,
+    "coverage": 0.0,
+    "null_std": 4.2,
+    "z": null
+   }
+  },
+  "2019": {
+   "dates": [
+    "20190703",
+    "20190901"
+   ],
+   "tpp3_plant": {
+    "inside_minus_ring_mm": 8.3,
+    "coverage": 0.82,
+    "null_std": 5.2,
+    "z": 1.65
+   },
+   "tank_window": {
+    "inside_minus_ring_mm": null,
+    "coverage": 0.0,
+    "null_std": 6.6,
+    "z": null
+   }
+  },
+  "2020": {
+   "dates": [
+    "20200627",
+    "20200919"
+   ],
+   "tpp3_plant": {
+    "inside_minus_ring_mm": 12.0,
+    "coverage": 0.86,
+    "null_std": 5.1,
+    "z": 2.4
+   },
+   "tank_window": {
+    "inside_minus_ring_mm": null,
+    "coverage": 0.0,
+    "null_std": 7.3,
+    "z": null
+   }
+  },
+  "2021": {
+   "dates": [
+    "20210716",
+    "20210926"
+   ],
+   "tpp3_plant": {
+    "inside_minus_ring_mm": 1.3,
+    "coverage": 0.88,
+    "null_std": 3.6,
+    "z": 0.34
+   },
+   "tank_window": {
+    "inside_minus_ring_mm": null,
+    "coverage": 0.0,
+    "null_std": 3.2,
+    "z": null
+   }
+  },
+  "2025": {
+   "dates": [
+    "20250625",
+    "20250905"
+   ],
+   "tpp3_plant": {
+    "inside_minus_ring_mm": 7.3,
+    "coverage": 0.74,
+    "null_std": 4.6,
+    "z": 1.69
+   },
+   "tank_window": {
+    "inside_minus_ring_mm": null,
+    "coverage": 0.0,
+    "null_std": 5.4,
+    "z": null
+   }
+  },
+  "2026": {
+   "dates": [
+    "20260621",
+    "20260709"
+   ],
+   "tpp3_plant": {
+    "inside_minus_ring_mm": 7.3,
+    "coverage": 0.81,
+    "null_std": 5.4,
+    "z": 1.45
+   },
+   "tank_window": {
+    "inside_minus_ring_mm": null,
+    "coverage": 0.0,
+    "null_std": 5.5,
+    "z": null
+   }
+  }
+ }
+}

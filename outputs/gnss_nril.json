@@ -1,0 +1,32 @@
+{
+ "station": "NRIL",
+ "lat": 69.3618,
+ "lon": 88.3598,
+ "monument": "roof of Seismology Building, 2.6 m steel rod; bedrock flood basalts",
+ "source": "https://geodesy.unr.edu/gps_timeseries/IGS20/tenv3/IGS20/NRIL.tenv3",
+ "first": "2000-09-17",
+ "last": "2023-01-16",
+ "all": {
+  "trend_mm_yr": 1.65,
+  "trend_se": 0.03,
+  "annual_amp_mm": 8.2,
+  "annual_peak_day_of_year": 242,
+  "residual_sd_mm": 7.5,
+  "n_days": 7586
+ },
+ "2017_2020": {
+  "trend_mm_yr": 3.0,
+  "trend_se": 0.56,
+  "annual_amp_mm": 7.2,
+  "annual_peak_day_of_year": 265,
+  "residual_sd_mm": 6.8,
+  "n_days": 1123
+ },
+ "summer_change_mm": {
+  "2017": -2.7,
+  "2018": 10.7,
+  "2019": 12.4,
+  "2020": 7.7
+ },
+ "zhang2022_area_mean_mm_yr": -30.8
+}

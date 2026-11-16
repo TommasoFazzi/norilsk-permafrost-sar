@@ -1,0 +1,15 @@
+asf_search>=11
+hyp3_sdk>=7
+pandas
+numpy
+scipy
+shapely
+pyproj
+requests
+rasterio
+xarray
+netCDF4
+h5py
+matplotlib
+pystac-client
+planetary-computer

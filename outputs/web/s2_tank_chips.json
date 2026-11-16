@@ -1,0 +1,25 @@
+{
+ "bounds_lonlat": [
+  87.9079,
+  69.3182,
+  87.95989999999999,
+  69.3362
+ ],
+ "tank5_latlon": [
+  69.3272,
+  87.9339
+ ],
+ "credit": "Contains modified Copernicus Sentinel data 2019-2020",
+ "before": {
+  "file": "s2_tank_before.png",
+  "item": "S2A_MSIL2A_20190902T061631_R034_T45WWS_20201004T081813",
+  "date": "2019-09-02",
+  "chip_white_or_nodata_fraction": 0.023
+ },
+ "after": {
+  "file": "s2_tank_after.png",
+  "item": "S2B_MSIL2A_20200720T060639_R134_T45WWS_20200909T025403",
+  "date": "2020-07-20",
+  "chip_white_or_nodata_fraction": 0.027
+ }
+}

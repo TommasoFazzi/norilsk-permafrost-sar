@@ -1,0 +1,318 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Norilsk Results Viewer</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<!-- Reference implementation of the package: reads story.json, manifest.json,
+     vectors/, tables/, overlays/, images/. Serve this folder over HTTP:
+     python3 -m http.server 8000  ->  http://localhost:8000/viewer.html -->
+<style>
+:root {
+  color-scheme: light;
+  --page: #f9f9f7; --surface: #fcfcfb; --ink: #0b0b0b; --ink-2: #52514e; --muted: #898781;
+  --grid: #e1e0d9; --axis: #c3c2b7; --border: #e1e0d9; --band: rgba(137,135,129,0.22);
+  --s1: #2a78d6; --s2: #eb6834; --s3: #1baf7a; --accent: #2a78d6;
+}
+@media (prefers-color-scheme: dark) {
+  :root:where(:not([data-theme="light"])) {
+    color-scheme: dark;
+    --page: #0d0d0d; --surface: #1a1a19; --ink: #f0efec; --ink-2: #c3c2b7; --muted: #898781;
+    --grid: #2c2c2a; --axis: #383835; --border: #2c2c2a; --band: rgba(137,135,129,0.28);
+    --s1: #3987e5; --s2: #d95926; --s3: #199e70; --accent: #3987e5;
+  }
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--page); color: var(--ink); font: 14px/1.5 system-ui, -apple-system, "Segoe UI", sans-serif; }
+header { padding: 14px 20px; border-bottom: 1px solid var(--border); }
+header h1 { margin: 0; font-size: 18px; }
+header p { margin: 2px 0 0; color: var(--ink-2); font-size: 13px; }
+.layout { display: grid; grid-template-columns: minmax(300px, 400px) 1fr; height: calc(100vh - 64px); }
+#story { overflow-y: auto; padding: 12px 16px; border-right: 1px solid var(--border); }
+.card { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 12px 14px; margin-bottom: 10px; cursor: pointer; }
+.card.active { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent); }
+.card h2 { font-size: 15px; margin: 0 0 6px; }
+.card p { margin: 0 0 8px; color: var(--ink-2); }
+.card .caveat { font-size: 12px; color: var(--muted); }
+.card table { width: 100%; border-collapse: collapse; font-size: 12px; margin-bottom: 6px; }
+.card td { padding: 3px 0; border-top: 1px solid var(--border); vertical-align: top; }
+.card td.v { text-align: right; padding-left: 8px; color: var(--ink); white-space: nowrap; }
+.card td.l { color: var(--ink-2); }
+#right { overflow-y: auto; }
+#map { height: 58vh; min-height: 360px; }
+.mapbar { display: flex; flex-wrap: wrap; gap: 8px 16px; align-items: center; padding: 8px 16px; border-bottom: 1px solid var(--border); font-size: 12px; color: var(--ink-2); }
+.mapbar select, .mapbar input { font: inherit; }
+.scale { display: inline-flex; align-items: center; gap: 6px; }
+.scale i { width: 120px; height: 10px; border-radius: 2px; background: linear-gradient(90deg, rgb(230,103,103), rgb(56,56,53), rgb(57,135,229)); }
+.charts { display: grid; grid-template-columns: repeat(auto-fit, minmax(420px, 1fr)); gap: 12px; padding: 12px 16px 24px; }
+.chart { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 12px; }
+.chart h3 { margin: 0; font-size: 14px; }
+.chart .sub { margin: 2px 0 8px; font-size: 12px; color: var(--ink-2); }
+.chart .canvas { position: relative; height: 260px; }
+.chart details { margin-top: 6px; font-size: 12px; color: var(--ink-2); }
+.chart details table { border-collapse: collapse; width: 100%; }
+.chart details td, .chart details th { padding: 2px 6px; border-bottom: 1px solid var(--border); text-align: right; }
+.filters { display: flex; gap: 6px; margin: 6px 0 8px; }
+.filters button { font: inherit; font-size: 12px; padding: 3px 10px; border-radius: 999px; border: 1px solid var(--border); background: transparent; color: var(--ink-2); cursor: pointer; }
+.filters button[aria-pressed="true"] { border-color: var(--accent); color: var(--ink); }
+.figs { display: flex; flex-wrap: wrap; gap: 8px; padding: 0 16px 24px; }
+.figs a { font-size: 12px; color: var(--accent); }
+.err { padding: 16px; color: #d03b3b; }
+@media (max-width: 800px) {
+  .layout { grid-template-columns: 1fr; height: auto; }
+  #story { border-right: 0; }
+  .charts { grid-template-columns: 1fr; padding: 12px 16px; }
+}
+</style>
+</head>
+<body>
+<header>
+  <h1>Norilsk: thawing ground and the TPP-3 tank collapse</h1>
+  <p>Local viewer of the frontend package. Click a section to move the map.</p>
+</header>
+<div class="layout">
+  <aside id="story" aria-label="Story"></aside>
+  <main id="right">
+    <div id="map" role="region" aria-label="Map"></div>
+    <div class="mapbar">
+      <label>Map layer <select id="layer"><option value="">none</option></select></label>
+      <label>Opacity <input id="opacity" type="range" min="0" max="1" step="0.05" value="0.8"></label>
+      <span class="scale"><span>down</span><i></i><span>up</span><span id="lim"></span></span>
+      <label><input id="s2" type="checkbox"> Sentinel-2 tank farm <select id="s2which"><option value="before">before</option><option value="after">after</option></select></label>
+    </div>
+    <div class="charts">
+      <section class="chart">
+        <h3>Tank 5 in winter, vs other tanks</h3>
+        <p class="sub">Vertical change since the first December date, mm (+ up). Grey band: comparable targets ±2 sd.</p>
+        <div class="filters" id="winters"></div>
+        <div class="canvas"><canvas id="cWinter"></canvas></div>
+        <details><summary>Data table</summary><div id="tWinter"></div></details>
+      </section>
+      <section class="chart">
+        <h3>Tank 5 per observable interval</h3>
+        <p class="sub">Change vs surroundings, mm. Grey bar: comparable targets ±2 sd. Orange: what Zhang et al. 2022 (−35 mm/yr) predicts.</p>
+        <div class="canvas"><canvas id="cIntervals"></canvas></div>
+        <details><summary>Data table</summary><div id="tIntervals"></div></details>
+      </section>
+      <section class="chart">
+        <h3>Wetland thaw coefficient, summer by summer</h3>
+        <p class="sub">Stefan slope b, mm per √(°C·day), ±2 se. Same value every summer: no acceleration.</p>
+        <div class="canvas"><canvas id="cWetland"></canvas></div>
+        <details><summary>Data table</summary><div id="tWetland"></div></details>
+      </section>
+      <section class="chart">
+        <h3>GNSS station NRIL (bedrock, Norilsk)</h3>
+        <p class="sub">Weekly vertical position, mm vs 2017 mean. Rising slightly: no regional subsidence.</p>
+        <div class="canvas"><canvas id="cGnss"></canvas></div>
+        <details><summary>Data table (yearly means)</summary><div id="tGnss"></div></details>
+      </section>
+    </div>
+    <div class="figs" id="figs"></div>
+  </main>
+</div>
+<script>
+const css = (n) => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+const num = (v) => (v === "" || v === undefined || v === "None" ? null : Number(v));
+const iso = (d) => `${d.slice(0, 4)}-${d.slice(4, 6)}-${d.slice(6, 8)}`;
+const ms = (d) => Date.parse(d.length === 8 ? iso(d) : d);
+const fmtDate = (t) => new Date(t).toISOString().slice(0, 10);
+const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+
+async function getJSON(p) { const r = await fetch(p); if (!r.ok) throw new Error(p); return r.json(); }
+async function getCSV(p) {
+  const r = await fetch(p); if (!r.ok) throw new Error(p);
+  const [head, ...rows] = (await r.text()).trim().split(/\r?\n/);
+  const cols = head.split(",");
+  return rows.map((l) => Object.fromEntries(l.split(",").map((v, i) => [cols[i], v])));
+}
+function table(el, cols, rows) {
+  el.innerHTML = `<table><tr>${cols.map((c) => `<th>${esc(c)}</th>`).join("")}</tr>${rows
+    .map((r) => `<tr>${r.map((v) => `<td>${v === null || v === undefined ? "—" : esc(v)}</td>`).join("")}</tr>`).join("")}</table>`;
+}
+
+// ------------------------------------------------------------------ map
+const map = L.map("map", { zoomControl: true }).setView([69.38, 88.0], 9);
+const sat = L.tileLayer("https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
+  { maxZoom: 18, attribution: "Imagery © Esri, Maxar, Earthstar Geographics" }).addTo(map);
+let overlay = null, s2layer = null, manifest = null;
+const KIND = { tank: "--s1", tank_row: "--s2", depot_tank: "--s2", gnss: "--s3", reference: "--s3", control: "--s3" };
+
+function setOverlay(file) {
+  if (overlay) map.removeLayer(overlay);
+  overlay = null;
+  const m = manifest.files.find((f) => f.overlay === file);
+  document.getElementById("lim").textContent = m ? `±${m.overlay_colour_limit_mm} mm` : "";
+  if (!m) return;
+  const c = m.overlay_corners_lonlat;             // NW, NE, SE, SW as [lon, lat]
+  overlay = L.imageOverlay(m.overlay, [[c[2][1], c[0][0]], [c[0][1], c[1][0]]],
+    { opacity: Number(document.getElementById("opacity").value) }).addTo(map);
+  document.getElementById("layer").value = file;
+}
+function setS2(on) {
+  if (s2layer) map.removeLayer(s2layer);
+  s2layer = null;
+  document.getElementById("s2").checked = on;
+  if (!on) return;
+  const which = document.getElementById("s2which").value;
+  const m = manifest.files.find((f) => f.file === `images/s2_tank_${which}.png`);
+  if (!m) return;
+  const [w, s, e, n] = m.bounds_lonlat;
+  s2layer = L.imageOverlay(m.file, [[s, w], [n, e]], { opacity: 1 }).addTo(map);
+}
+
+const VIEWS = {
+  question: { c: [69.40, 87.85], z: 10 },
+  thaw: { c: [69.38, 88.05], z: 9, layer: "overlays/overlay_local_persistent.webp" },
+  industry: { c: [69.36, 88.10], z: 10, layer: "overlays/overlay_s1_seasonal_2020.webp" },
+  tank: { c: [69.3272, 87.9339], z: 15, s2: true },
+  reference: { c: [69.3618, 88.3598], z: 12 },
+  verdict: { c: [69.3272, 87.9339], z: 14 },
+  limits: { c: [69.38, 88.0], z: 9 },
+};
+function goTo(id) {
+  const v = VIEWS[id]; if (!v) return;
+  map.flyTo(v.c, v.z, { duration: 0.8 });
+  setOverlay(v.layer || "");
+  setS2(!!v.s2);
+  document.querySelectorAll(".card").forEach((c) => c.classList.toggle("active", c.dataset.id === id));
+}
+
+// ------------------------------------------------------------------ charts
+Chart.defaults.font.family = "system-ui, -apple-system, 'Segoe UI', sans-serif";
+const charts = {};
+function base(yTitle, xTime) {
+  return {
+    responsive: true, maintainAspectRatio: false, animation: false,
+    interaction: { mode: "index", intersect: false },
+    plugins: { legend: { labels: { color: css("--ink-2"), boxWidth: 12, filter: (i) => !i.text.startsWith("_") } },
+               tooltip: { filter: (i) => !i.dataset.label.startsWith("_") } },
+    scales: {
+      x: xTime ? { type: "linear", ticks: { color: css("--muted"), maxTicksLimit: 6, callback: (v) => fmtDate(v) },
+                   grid: { color: css("--grid") }, border: { color: css("--axis") } }
+               : { ticks: { color: css("--muted") }, grid: { display: false }, border: { color: css("--axis") } },
+      y: { title: { display: true, text: yTitle, color: css("--muted") }, ticks: { color: css("--muted") },
+           grid: { color: css("--grid") }, border: { color: css("--axis") } },
+    },
+  };
+}
+const line = (label, data, color, extra = {}) => ({ label, data, borderColor: color, backgroundColor: color,
+  borderWidth: 2, pointRadius: 4, pointHoverRadius: 6, spanGaps: false, ...extra });
+
+let winterRows = [];
+function drawWinter(w) {
+  document.querySelectorAll("#winters button").forEach((b) => b.setAttribute("aria-pressed", b.dataset.w === w));
+  const r = winterRows.filter((x) => x.winter === w);
+  const pts = (k) => r.map((x) => ({ x: ms(x.date), y: num(x[k]) }));
+  const band = (sign) => r.map((x) => ({ x: ms(x.date), y: num(x.null_mean_mm) === null ? null : num(x.null_mean_mm) + sign * 2 * num(x.null_sd_mm) }));
+  const neighbour = Object.keys(r[0] || {}).find((k) => k.startsWith("row_117m"));
+  const ds = [
+    line("_band_lo", band(-1), "transparent", { pointRadius: 0, borderWidth: 0 }),
+    line("_band_hi", band(1), "transparent", { pointRadius: 0, borderWidth: 0, fill: "-1", backgroundColor: css("--band") }),
+    line("Depot tanks, mean", pts("osm_tanks_mean_mm"), css("--s3"), { borderDash: [5, 4] }),
+  ];
+  if (neighbour) ds.push(line("Neighbouring tank, 117 m SE", pts(neighbour), css("--s2")));
+  ds.push(line("Tank 5", pts("tank5_mm"), css("--s1"), { borderWidth: 3 }));
+  charts.winter?.destroy();
+  charts.winter = new Chart(document.getElementById("cWinter"), { type: "line", data: { datasets: ds }, options: base("mm", true) });
+  table(document.getElementById("tWinter"), ["date", "tank 5", "neighbour", "depot mean", "null mean", "null sd", "z tank 5", "blowing-snow h"],
+    r.map((x) => [iso(x.date), num(x.tank5_mm), neighbour ? num(x[neighbour]) : null, num(x.osm_tanks_mean_mm),
+                  num(x.null_mean_mm), num(x.null_sd_mm), num(x.z_tank5), num(x.since_prev_blowing_snow_h)]));
+}
+
+function drawIntervals(rows) {
+  const labels = rows.map((r) => `${iso(r.from).slice(0, 7)} → ${iso(r.to).slice(0, 7)}`);
+  const ds = [
+    { type: "bar", label: "Comparable targets ±2 sd", data: rows.map((r) => [num(r.comparable_targets_mean_mm) - 2 * num(r.comparable_targets_sd_mm), num(r.comparable_targets_mean_mm) + 2 * num(r.comparable_targets_sd_mm)]),
+      backgroundColor: css("--band"), borderRadius: 4, barPercentage: 0.5 },
+    { type: "line", label: "Zhang 2022 prediction", data: rows.map((r) => num(r.zhang2022_rate_expected_mm)), showLine: false,
+      pointRadius: 6, pointStyle: "rectRot", borderColor: css("--s2"), backgroundColor: css("--s2") },
+    { type: "line", label: "Tank 5", data: rows.map((r) => num(r.tank5_mm)), showLine: false, pointRadius: 6,
+      borderColor: css("--surface"), borderWidth: 2, backgroundColor: css("--s1") },
+  ];
+  const o = base("mm", false);
+  o.plugins.tooltip = { callbacks: { label: (c) => Array.isArray(c.raw) ? `${c.dataset.label}: ${c.raw[0].toFixed(1)} to ${c.raw[1].toFixed(1)}` : `${c.dataset.label}: ${c.raw}` } };
+  charts.int?.destroy();
+  charts.int = new Chart(document.getElementById("cIntervals"), { data: { labels, datasets: ds }, options: o });
+  table(document.getElementById("tIntervals"), ["interval", "tank 5", "null mean", "null sd", "z", "depot tanks", "Zhang"],
+    rows.map((r, i) => [labels[i], num(r.tank5_mm), num(r.comparable_targets_mean_mm), num(r.comparable_targets_sd_mm), num(r.z), num(r.depot_tanks_mean_mm), num(r.zhang2022_rate_expected_mm)]));
+}
+
+function drawWetland(rows) {
+  const labels = rows.map((r) => r.summer);
+  const b = rows.map((r) => num(r.stefan_b)), se = rows.map((r) => num(r.stefan_se));
+  const o = base("mm / √(°C·day)", false);
+  o.plugins.legend = { display: false };
+  o.plugins.tooltip = { callbacks: { label: (c) => Array.isArray(c.raw) ? `±2 se: ${c.raw[0].toFixed(3)} to ${c.raw[1].toFixed(3)}` : `b = ${c.raw}` } };
+  charts.wet?.destroy();
+  charts.wet = new Chart(document.getElementById("cWetland"), { data: { labels, datasets: [
+    { type: "bar", label: "±2 se", data: b.map((v, i) => [v - 2 * se[i], v + 2 * se[i]]), backgroundColor: css("--band"), borderRadius: 4, barPercentage: 0.25 },
+    { type: "line", label: "Stefan b", data: b, showLine: false, pointRadius: 6, borderColor: css("--surface"), borderWidth: 2, backgroundColor: css("--s1") },
+  ] }, options: o });
+  table(document.getElementById("tWetland"), ["summer", "b", "se", "wetland − moss (mm)", "dates"],
+    rows.map((r) => [r.summer, num(r.stefan_b), num(r.stefan_se), num(r.wetland_minus_moss), num(r.n_dates)]));
+}
+
+function drawGnss(rows) {
+  const o = base("mm", true);
+  o.plugins.legend = { display: false };
+  o.plugins.tooltip.callbacks = { title: (i) => fmtDate(i[0].parsed.x) };
+  charts.gnss?.destroy();
+  charts.gnss = new Chart(document.getElementById("cGnss"), { type: "line", data: { datasets: [
+    line("NRIL vertical", rows.map((r) => ({ x: ms(r.date), y: num(r.up_mm_vs_2017_mean) })), css("--s1"), { pointRadius: 0, borderWidth: 1.5 }),
+  ] }, options: o });
+  const years = {};
+  rows.forEach((r) => { (years[r.date.slice(0, 4)] ||= []).push(num(r.up_mm_vs_2017_mean)); });
+  table(document.getElementById("tGnss"), ["year", "mean mm"], Object.entries(years).map(([y, v]) => [y, (v.reduce((a, b) => a + b, 0) / v.length).toFixed(1)]));
+}
+
+// ------------------------------------------------------------------ load
+(async () => {
+  try {
+    const [story, man, sites, plant] = await Promise.all([getJSON("story.json"), getJSON("manifest.json"),
+      getJSON("vectors/sites.geojson"), getJSON("vectors/tpp3_plant.geojson").catch(() => null)]);
+    manifest = man;
+    const sel = document.getElementById("layer");
+    man.files.filter((f) => f.overlay).forEach((f) => sel.insertAdjacentHTML("beforeend", `<option value="${esc(f.overlay)}">${esc(f.title)}</option>`));
+    sel.onchange = () => setOverlay(sel.value);
+    document.getElementById("opacity").oninput = (e) => overlay && overlay.setOpacity(Number(e.target.value));
+    document.getElementById("s2").onchange = (e) => setS2(e.target.checked);
+    document.getElementById("s2which").onchange = () => setS2(document.getElementById("s2").checked);
+    if (plant) L.geoJSON(plant, { style: { color: "#ffffff", weight: 1.5, dashArray: "4 4", fill: false } }).bindTooltip("TPP-3 power plant").addTo(map);
+    L.geoJSON(sites, { pointToLayer: (f, ll) => L.circleMarker(ll, { radius: f.properties.kind === "tank" ? 9 : 6,
+        color: "#ffffff", weight: 2, fillColor: css(KIND[f.properties.kind] || "--s3"), fillOpacity: 1 }) })
+      .eachLayer((l) => l.bindTooltip(`<b>${esc(l.feature.properties.name)}</b><br>${esc(l.feature.properties.note || "")}`)).addTo(map);
+    document.getElementById("story").innerHTML = story.sections.map((s) => `
+      <article class="card" data-id="${esc(s.id)}" tabindex="0">
+        <h2>${esc(s.headline)}</h2><p>${esc(s.text || "")}</p>
+        ${s.key_numbers ? `<table>${s.key_numbers.map((k) => `<tr><td class="l">${esc(k.label)}</td><td class="v">${esc(k.value)} ${esc(k.unit || "")}</td></tr>`).join("")}</table>` : ""}
+        ${s.caveats ? `<p class="caveat">${esc(s.caveats)}</p>` : ""}
+      </article>`).join("") + `<p class="caveat" style="font-size:11px;color:var(--muted)">${esc(story.credit)}</p>`;
+    document.querySelectorAll(".card").forEach((c) => {
+      c.onclick = () => goTo(c.dataset.id);
+      c.onkeydown = (e) => { if (e.key === "Enter") goTo(c.dataset.id); };
+    });
+    document.getElementById("figs").innerHTML = "<span style='font-size:12px;color:var(--ink-2)'>Figures:</span>" +
+      man.files.filter((f) => f.type === "figure").map((f) => `<a href="${esc(f.file)}" target="_blank">${esc(f.title)}</a>`).join("");
+
+    const [win, intv, wet, gnss] = await Promise.all([getCSV("tables/tank_winters.csv"), getCSV("tables/tank_intervals.csv"),
+      getCSV("tables/wetland_by_summer.csv"), getCSV("tables/gnss_nril_up.csv")]);
+    winterRows = win;
+    const ws = ["2018-19", "2019-20"].filter((w) => win.some((r) => r.winter === w && r.tank5_mm !== ""));
+    document.getElementById("winters").innerHTML = ws.map((w) => `<button data-w="${w}" aria-pressed="false">${w}</button>`).join("");
+    document.querySelectorAll("#winters button").forEach((b) => (b.onclick = () => drawWinter(b.dataset.w)));
+    const redraw = () => { drawWinter(document.querySelector("#winters button[aria-pressed='true']")?.dataset.w || ws[ws.length - 1]);
+      drawIntervals(intv); drawWetland(wet); drawGnss(gnss); };
+    redraw();
+    matchMedia("(prefers-color-scheme: dark)").addEventListener("change", redraw);
+    goTo("tank");
+  } catch (e) {
+    document.getElementById("story").innerHTML = `<p class="err">Could not load ${esc(e.message)}. Serve this folder over HTTP
+      (python3 -m http.server 8000) and open http://localhost:8000/viewer.html.</p>`;
+  }
+})();
+</script>
+</body>
+</html>

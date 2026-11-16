@@ -1,0 +1,1500 @@
+{
+ "2020": {
+  "dates": [
+   "20200615",
+   "20200627",
+   "20200721",
+   "20200802",
+   "20200814",
+   "20200826",
+   "20200907",
+   "20200919"
+  ],
+  "pairs": [
+   [
+    "20200615",
+    "20200627"
+   ],
+   [
+    "20200615",
+    "20200721"
+   ],
+   [
+    "20200627",
+    "20200721"
+   ],
+   [
+    "20200627",
+    "20200802"
+   ],
+   [
+    "20200721",
+    "20200802"
+   ],
+   [
+    "20200721",
+    "20200814"
+   ],
+   [
+    "20200802",
+    "20200814"
+   ],
+   [
+    "20200802",
+    "20200826"
+   ],
+   [
+    "20200814",
+    "20200826"
+   ],
+   [
+    "20200814",
+    "20200907"
+   ],
+   [
+    "20200826",
+    "20200907"
+   ],
+   [
+    "20200826",
+    "20200919"
+   ],
+   [
+    "20200907",
+    "20200919"
+   ]
+  ],
+  "closure": [
+   {
+    "triplet": [
+     "20200615",
+     "20200627",
+     "20200721"
+    ],
+    "valid_frac": 0.318,
+    "unwrap_error_frac": 0.5969,
+    "unwrap_error_frac_by_class": {
+     "grassland": 0.6014,
+     "built-up": 0.7018,
+     "bare / sparse": 0.6414,
+     "herbaceous wetland": 0.3363,
+     "moss and lichen": 0.6157
+    },
+    "bias_mm_by_class": {
+     "grassland": {
+      "mean": -1.06,
+      "se": 0.06,
+      "n_px": 96182
+     },
+     "built-up": {
+      "mean": 0.18,
+      "se": 0.09,
+      "n_px": 16242
+     },
+     "bare / sparse": {
+      "mean": 0.42,
+      "se": 0.02,
+      "n_px": 161003
+     },
+     "herbaceous wetland": {
+      "mean": -0.89,
+      "se": 0.18,
+      "n_px": 13359
+     },
+     "moss and lichen": {
+      "mean": -0.57,
+      "se": 0.02,
+      "n_px": 435652
+     }
+    },
+    "bias_local_mm_by_class": {
+     "grassland": {
+      "mean": -0.43,
+      "se": 0.06,
+      "n_px": 94393
+     },
+     "built-up": {
+      "mean": 0.5,
+      "se": 0.09,
+      "n_px": 16242
+     },
+     "bare / sparse": {
+      "mean": 0.46,
+      "se": 0.02,
+      "n_px": 160726
+     },
+     "herbaceous wetland": {
+      "mean": -0.07,
+      "se": 0.19,
+      "n_px": 10457
+     },
+     "moss and lichen": {
+      "mean": -0.13,
+      "se": 0.02,
+      "n_px": 432908
+     }
+    }
+   },
+   {
+    "triplet": [
+     "20200627",
+     "20200721",
+     "20200802"
+    ],
+    "valid_frac": 0.479,
+    "unwrap_error_frac": 0.0041,
+    "unwrap_error_frac_by_class": {
+     "grassland": 0.0044,
+     "built-up": 0.0011,
+     "bare / sparse": 0.0027,
+     "herbaceous wetland": 0.0261,
+     "moss and lichen": 0.0019
+    },
+    "bias_mm_by_class": {
+     "grassland": {
+      "mean": -0.57,
+      "se": 0.03,
+      "n_px": 270074
+     },
+     "built-up": {
+      "mean": -0.71,
+      "se": 0.08,
+      "n_px": 16501
+     },
+     "bare / sparse": {
+      "mean": -0.31,
+      "se": 0.02,
+      "n_px": 165293
+     },
+     "herbaceous wetland": {
+      "mean": -0.77,
+      "se": 0.08,
+      "n_px": 52365
+     },
+     "moss and lichen": {
+      "mean": -0.68,
+      "se": 0.01,
+      "n_px": 540537
+     }
+    },
+    "bias_local_mm_by_class": {
+     "grassland": {
+      "mean": -0.03,
+      "se": 0.03,
+      "n_px": 265010
+     },
+     "built-up": {
+      "mean": -0.03,
+      "se": 0.08,
+      "n_px": 16337
+     },
+     "bare / sparse": {
+      "mean": 0.1,
+      "se": 0.02,
+      "n_px": 164916
+     },
+     "herbaceous wetland": {
+      "mean": 0.14,
+      "se": 0.08,
+      "n_px": 50896
+     },
+     "moss and lichen": {
+      "mean": -0.03,
+      "se": 0.01,
+      "n_px": 538838
+     }
+    }
+   },
+   {
+    "triplet": [
+     "20200721",
+     "20200802",
+     "20200814"
+    ],
+    "valid_frac": 0.626,
+    "unwrap_error_frac": 0.0012,
+    "unwrap_error_frac_by_class": {
+     "grassland": 0.0012,
+     "built-up": 0.0003,
+     "bare / sparse": 0.0011,
+     "herbaceous wetland": 0.0026,
+     "moss and lichen": 0.0005
+    },
+    "bias_mm_by_class": {
+     "grassland": {
+      "mean": -0.62,
+      "se": 0.02,
+      "n_px": 379627
+     },
+     "built-up": {
+      "mean": -0.52,
+      "se": 0.06,
+      "n_px": 17747
+     },
+     "bare / sparse": {
+      "mean": -0.26,
+      "se": 0.01,
+      "n_px": 169047
+     },
+     "herbaceous wetland": {
+      "mean": -1.16,
+      "se": 0.04,
+      "n_px": 144877
+     },
+     "moss and lichen": {
+      "mean": -0.53,
+      "se": 0.01,
+      "n_px": 611826
+     }
+    },
+    "bias_local_mm_by_class": {
+     "grassland": {
+      "mean": -0.01,
+      "se": 0.02,
+      "n_px": 377215
+     },
+     "built-up": {
+      "mean": 0.04,
+      "se": 0.06,
+      "n_px": 17589
+     },
+     "bare / sparse": {
+      "mean": 0.07,
+      "se": 0.01,
+      "n_px": 168529
+     },
+     "herbaceous wetland": {
+      "mean": -0.16,
+      "se": 0.04,
+      "n_px": 136591
+     },
+     "moss and lichen": {
+      "mean": 0.01,
+      "se": 0.01,
+      "n_px": 611476
+     }
+    }
+   },
+   {
+    "triplet": [
+     "20200802",
+     "20200814",
+     "20200826"
+    ],
+    "valid_frac": 0.772,
+    "unwrap_error_frac": 0.0173,
+    "unwrap_error_frac_by_class": {
+     "grassland": 0.0419,
+     "built-up": 0.0002,
+     "bare / sparse": 0.0016,
+     "herbaceous wetland": 0.0188,
+     "moss and lichen": 0.0154
+    },
+    "bias_mm_by_class": {
+     "grassland": {
+      "mean": -1.04,
+      "se": 0.03,
+      "n_px": 420221
+     },
+     "built-up": {
+      "mean": 0.25,
+      "se": 0.04,
+      "n_px": 17968
+     },
+     "bare / sparse": {
+      "mean": 0.04,
+      "se": 0.01,
+      "n_px": 170774
+     },
+     "herbaceous wetland": {
+      "mean": -1.39,
+      "se": 0.03,
+      "n_px": 235157
+     },
+     "moss and lichen": {
+      "mean": -0.48,
+      "se": 0.01,
+      "n_px": 626869
+     }
+    },
+    "bias_local_mm_by_class": {
+     "grassland": {
+      "mean": -0.09,
+      "se": 0.02,
+      "n_px": 420112
+     },
+     "built-up": {
+      "mean": 0.44,
+      "se": 0.04,
+      "n_px": 17968
+     },
+     "bare / sparse": {
+      "mean": 0.21,
+      "se": 0.01,
+      "n_px": 170774
+     },
+     "herbaceous wetland": {
+      "mean": -0.16,
+      "se": 0.03,
+      "n_px": 233624
+     },
+     "moss and lichen": {
+      "mean": 0.0,
+      "se": 0.01,
+      "n_px": 626833
+     }
+    }
+   },
+   {
+    "triplet": [
+     "20200814",
+     "20200826",
+     "20200907"
+    ],
+    "valid_frac": 0.717,
+    "unwrap_error_frac": 0.0759,
+    "unwrap_error_frac_by_class": {
+     "grassland": 0.1829,
+     "built-up": 0.0009,
+     "bare / sparse": 0.0031,
+     "herbaceous wetland": 0.0847,
+     "moss and lichen": 0.0659
+    },
+    "bias_mm_by_class": {
+     "grassland": {
+      "mean": -0.24,
+      "se": 0.04,
+      "n_px": 377212
+     },
+     "built-up": {
+      "mean": 0.48,
+      "se": 0.05,
+      "n_px": 18002
+     },
+     "bare / sparse": {
+      "mean": 0.23,
+      "se": 0.01,
+      "n_px": 171710
+     },
+     "herbaceous wetland": {
+      "mean": -0.63,
+      "se": 0.04,
+      "n_px": 216262
+     },
+     "moss and lichen": {
+      "mean": -0.08,
+      "se": 0.02,
+      "n_px": 608455
+     }
+    },
+    "bias_local_mm_by_class": {
+     "grassland": {
+      "mean": 0.01,
+      "se": 0.04,
+      "n_px": 376827
+     },
+     "built-up": {
+      "mean": 0.38,
+      "se": 0.05,
+      "n_px": 18002
+     },
+     "bare / sparse": {
+      "mean": 0.11,
+      "se": 0.01,
+      "n_px": 171710
+     },
+     "herbaceous wetland": {
+      "mean": -0.04,
+      "se": 0.04,
+      "n_px": 212225
+     },
+     "moss and lichen": {
+      "mean": 0.01,
+      "se": 0.02,
+      "n_px": 608406
+     }
+    }
+   },
+   {
+    "triplet": [
+     "20200826",
+     "20200907",
+     "20200919"
+    ],
+    "valid_frac": 0.667,
+    "unwrap_error_frac": 0.0309,
+    "unwrap_error_frac_by_class": {
+     "grassland": 0.0859,
+     "built-up": 0.0011,
+     "bare / sparse": 0.0059,
+     "herbaceous wetland": 0.0156,
+     "moss and lichen": 0.0162
+    },
+    "bias_mm_by_class": {
+     "grassland": {
+      "mean": 0.81,
+      "se": 0.03,
+      "n_px": 376157
+     },
+     "built-up": {
+      "mean": 0.37,
+      "se": 0.07,
+      "n_px": 17065
+     },
+     "bare / sparse": {
+      "mean": 0.29,
+      "se": 0.02,
+      "n_px": 167409
+     },
+     "herbaceous wetland": {
+      "mean": 1.06,
+      "se": 0.03,
+      "n_px": 211443
+     },
+     "moss and lichen": {
+      "mean": 0.33,
+      "se": 0.02,
+      "n_px": 598078
+     }
+    },
+    "bias_local_mm_by_class": {
+     "grassland": {
+      "mean": 0.08,
+      "se": 0.03,
+      "n_px": 375620
+     },
+     "built-up": {
+      "mean": 0.02,
+      "se": 0.07,
+      "n_px": 17060
+     },
+     "bare / sparse": {
+      "mean": -0.03,
+      "se": 0.02,
+      "n_px": 167380
+     },
+     "herbaceous wetland": {
+      "mean": 0.05,
+      "se": 0.03,
+      "n_px": 206852
+     },
+     "moss and lichen": {
+      "mean": -0.03,
+      "se": 0.02,
+      "n_px": 598041
+     }
+    }
+   }
+  ],
+  "closure_mean_bias_local_by_class": {
+   "grassland": {
+    "mean": -0.01,
+    "se": 0.02,
+    "n_px": 470227
+   },
+   "built-up": {
+    "mean": 0.26,
+    "se": 0.04,
+    "n_px": 18914
+   },
+   "bare / sparse": {
+    "mean": 0.15,
+    "se": 0.01,
+    "n_px": 175935
+   },
+   "herbaceous wetland": {
+    "mean": 0.01,
+    "se": 0.02,
+    "n_px": 256844
+   },
+   "moss and lichen": {
+    "mean": -0.01,
+    "se": 0.01,
+    "n_px": 651574
+   }
+  },
+  "network": {
+   "span": [
+    "20200615",
+    "20200907"
+   ],
+   "n_short": 6,
+   "n_long": 3,
+   "px_all_pairs": 373653,
+   "short_local_mm": {
+    "grassland": {
+     "mean": -5.05,
+     "se": 0.27,
+     "n_px": 47846
+    },
+    "built-up": {
+     "mean": 3.29,
+     "se": 0.32,
+     "n_px": 11185
+    },
+    "bare / sparse": {
+     "mean": 3.71,
+     "se": 0.21,
+     "n_px": 35524
+    },
+    "herbaceous wetland": {
+     "mean": -4.87,
+     "se": 0.56,
+     "n_px": 8835
+    },
+    "moss and lichen": {
+     "mean": -1.42,
+     "se": 0.12,
+     "n_px": 163195
+    }
+   },
+   "long_local_mm": {
+    "grassland": {
+     "mean": -0.99,
+     "se": 0.2,
+     "n_px": 47846
+    },
+    "built-up": {
+     "mean": 1.04,
+     "se": 0.22,
+     "n_px": 11185
+    },
+    "bare / sparse": {
+     "mean": 0.67,
+     "se": 0.15,
+     "n_px": 35524
+    },
+    "herbaceous wetland": {
+     "mean": -4.3,
+     "se": 0.62,
+     "n_px": 8835
+    },
+    "moss and lichen": {
+     "mean": -1.27,
+     "se": 0.1,
+     "n_px": 163195
+    }
+   },
+   "sbas_local_mm": {
+    "grassland": {
+     "mean": -2.13,
+     "se": 0.18,
+     "n_px": 47838
+    },
+    "built-up": {
+     "mean": 1.77,
+     "se": 0.22,
+     "n_px": 11173
+    },
+    "bare / sparse": {
+     "mean": 1.62,
+     "se": 0.15,
+     "n_px": 35501
+    },
+    "herbaceous wetland": {
+     "mean": -4.55,
+     "se": 0.57,
+     "n_px": 8827
+    },
+    "moss and lichen": {
+     "mean": -1.34,
+     "se": 0.09,
+     "n_px": 163109
+    }
+   },
+   "short_minus_long_local_mm": {
+    "grassland": {
+     "mean": -4.06,
+     "se": 0.28,
+     "n_px": 47846
+    },
+    "built-up": {
+     "mean": 2.24,
+     "se": 0.25,
+     "n_px": 11185
+    },
+    "bare / sparse": {
+     "mean": 3.04,
+     "se": 0.15,
+     "n_px": 35524
+    },
+    "herbaceous wetland": {
+     "mean": -0.57,
+     "se": 0.37,
+     "n_px": 8835
+    },
+    "moss and lichen": {
+     "mean": -0.16,
+     "se": 0.11,
+     "n_px": 163195
+    }
+   }
+  },
+  "dem_error": {
+   "baselines_m": [
+    0.0,
+    56.7,
+    -41.6,
+    -83.5,
+    59.5,
+    55.4,
+    -15.8,
+    -76.7
+   ],
+   "r_baseline_vs_sqrt_tdd": -0.228,
+   "slope_bias_mm_per_sqrt_tdd_per_m_dem_error": -0.0034,
+   "seasonal_local_without_dem_term": {
+    "grassland": {
+     "mean": -0.81,
+     "se": 0.1,
+     "n_px": 251410
+    },
+    "built-up": {
+     "mean": 3.47,
+     "se": 0.28,
+     "n_px": 13660
+    },
+    "bare / sparse": {
+     "mean": 3.04,
+     "se": 0.17,
+     "n_px": 45049
+    },
+    "herbaceous wetland": {
+     "mean": -5.1,
+     "se": 0.21,
+     "n_px": 86024
+    },
+    "moss and lichen": {
+     "mean": 0.15,
+     "se": 0.08,
+     "n_px": 298587
+    }
+   },
+   "seasonal_local_with_dem_term": {
+    "grassland": {
+     "mean": -0.87,
+     "se": 0.1,
+     "n_px": 251410
+    },
+    "built-up": {
+     "mean": 3.17,
+     "se": 0.26,
+     "n_px": 13660
+    },
+    "bare / sparse": {
+     "mean": 2.93,
+     "se": 0.17,
+     "n_px": 45049
+    },
+    "herbaceous wetland": {
+     "mean": -4.98,
+     "se": 0.21,
+     "n_px": 86024
+    },
+    "moss and lichen": {
+     "mean": 0.17,
+     "se": 0.08,
+     "n_px": 298587
+    }
+   },
+   "dem_error_m_by_class": {
+    "grassland": {
+     "mean": -20.4,
+     "se": 0.29,
+     "n_px": 254188
+    },
+    "built-up": {
+     "mean": 18.39,
+     "se": 1.0,
+     "n_px": 13703
+    },
+    "bare / sparse": {
+     "mean": 6.3,
+     "se": 0.51,
+     "n_px": 48154
+    },
+    "herbaceous wetland": {
+     "mean": -5.47,
+     "se": 0.44,
+     "n_px": 86541
+    },
+    "moss and lichen": {
+     "mean": -1.49,
+     "se": 0.19,
+     "n_px": 312583
+    }
+   },
+   "dem_error_needed_to_fake_wetland_m": 59.3
+  },
+  "full_network_frac": 0.293
+ },
+ "2025": {
+  "dates": [
+   "20250613",
+   "20250625",
+   "20250707",
+   "20250719",
+   "20250731",
+   "20250812",
+   "20250905"
+  ],
+  "pairs": [
+   [
+    "20250613",
+    "20250625"
+   ],
+   [
+    "20250613",
+    "20250707"
+   ],
+   [
+    "20250625",
+    "20250707"
+   ],
+   [
+    "20250625",
+    "20250719"
+   ],
+   [
+    "20250707",
+    "20250719"
+   ],
+   [
+    "20250707",
+    "20250731"
+   ],
+   [
+    "20250719",
+    "20250731"
+   ],
+   [
+    "20250719",
+    "20250812"
+   ],
+   [
+    "20250731",
+    "20250812"
+   ],
+   [
+    "20250731",
+    "20250905"
+   ],
+   [
+    "20250812",
+    "20250905"
+   ]
+  ],
+  "closure": [
+   {
+    "triplet": [
+     "20250613",
+     "20250625",
+     "20250707"
+    ],
+    "valid_frac": 0.276,
+    "unwrap_error_frac": 0.5894,
+    "unwrap_error_frac_by_class": {
+     "grassland": 0.5556,
+     "built-up": 0.7051,
+     "bare / sparse": 0.6473,
+     "herbaceous wetland": 0.6322,
+     "moss and lichen": 0.6065
+    },
+    "bias_mm_by_class": {
+     "grassland": {
+      "mean": -1.02,
+      "se": 0.07,
+      "n_px": 73252
+     },
+     "built-up": {
+      "mean": -0.8,
+      "se": 0.1,
+      "n_px": 15697
+     },
+     "bare / sparse": {
+      "mean": -0.28,
+      "se": 0.02,
+      "n_px": 155631
+     },
+     "herbaceous wetland": {
+      "mean": -1.27,
+      "se": 0.19,
+      "n_px": 10885
+     },
+     "moss and lichen": {
+      "mean": -0.73,
+      "se": 0.02,
+      "n_px": 369644
+     }
+    },
+    "bias_local_mm_by_class": {
+     "grassland": {
+      "mean": -0.26,
+      "se": 0.07,
+      "n_px": 72131
+     },
+     "built-up": {
+      "mean": 0.17,
+      "se": 0.1,
+      "n_px": 15493
+     },
+     "bare / sparse": {
+      "mean": 0.21,
+      "se": 0.02,
+      "n_px": 155079
+     },
+     "herbaceous wetland": {
+      "mean": -0.08,
+      "se": 0.19,
+      "n_px": 10016
+     },
+     "moss and lichen": {
+      "mean": -0.06,
+      "se": 0.02,
+      "n_px": 367503
+     }
+    }
+   },
+   {
+    "triplet": [
+     "20250625",
+     "20250707",
+     "20250719"
+    ],
+    "valid_frac": 0.408,
+    "unwrap_error_frac": 0.6527,
+    "unwrap_error_frac_by_class": {
+     "grassland": 0.714,
+     "built-up": 0.6969,
+     "bare / sparse": 0.6327,
+     "herbaceous wetland": 0.8064,
+     "moss and lichen": 0.6776
+    },
+    "bias_mm_by_class": {
+     "grassland": {
+      "mean": -0.3,
+      "se": 0.04,
+      "n_px": 172835
+     },
+     "built-up": {
+      "mean": -0.38,
+      "se": 0.1,
+      "n_px": 14604
+     },
+     "bare / sparse": {
+      "mean": -0.06,
+      "se": 0.02,
+      "n_px": 158886
+     },
+     "herbaceous wetland": {
+      "mean": -1.15,
+      "se": 0.08,
+      "n_px": 41113
+     },
+     "moss and lichen": {
+      "mean": -0.47,
+      "se": 0.01,
+      "n_px": 524605
+     }
+    },
+    "bias_local_mm_by_class": {
+     "grassland": {
+      "mean": -0.01,
+      "se": 0.03,
+      "n_px": 168796
+     },
+     "built-up": {
+      "mean": 0.14,
+      "se": 0.1,
+      "n_px": 14410
+     },
+     "bare / sparse": {
+      "mean": 0.16,
+      "se": 0.02,
+      "n_px": 158549
+     },
+     "herbaceous wetland": {
+      "mean": -0.19,
+      "se": 0.08,
+      "n_px": 39797
+     },
+     "moss and lichen": {
+      "mean": -0.05,
+      "se": 0.01,
+      "n_px": 521955
+     }
+    }
+   },
+   {
+    "triplet": [
+     "20250707",
+     "20250719",
+     "20250731"
+    ],
+    "valid_frac": 0.549,
+    "unwrap_error_frac": 0.0011,
+    "unwrap_error_frac_by_class": {
+     "grassland": 0.001,
+     "built-up": 0.002,
+     "bare / sparse": 0.0016,
+     "herbaceous wetland": 0.0012,
+     "moss and lichen": 0.0003
+    },
+    "bias_mm_by_class": {
+     "grassland": {
+      "mean": 0.2,
+      "se": 0.02,
+      "n_px": 322377
+     },
+     "built-up": {
+      "mean": -0.31,
+      "se": 0.09,
+      "n_px": 16174
+     },
+     "bare / sparse": {
+      "mean": 0.08,
+      "se": 0.02,
+      "n_px": 167474
+     },
+     "herbaceous wetland": {
+      "mean": -0.21,
+      "se": 0.04,
+      "n_px": 110649
+     },
+     "moss and lichen": {
+      "mean": 0.15,
+      "se": 0.01,
+      "n_px": 596128
+     }
+    },
+    "bias_local_mm_by_class": {
+     "grassland": {
+      "mean": 0.02,
+      "se": 0.02,
+      "n_px": 319923
+     },
+     "built-up": {
+      "mean": -0.13,
+      "se": 0.09,
+      "n_px": 16125
+     },
+     "bare / sparse": {
+      "mean": -0.05,
+      "se": 0.02,
+      "n_px": 167351
+     },
+     "herbaceous wetland": {
+      "mean": -0.02,
+      "se": 0.04,
+      "n_px": 107640
+     },
+     "moss and lichen": {
+      "mean": 0.01,
+      "se": 0.01,
+      "n_px": 595207
+     }
+    }
+   },
+   {
+    "triplet": [
+     "20250719",
+     "20250731",
+     "20250812"
+    ],
+    "valid_frac": 0.659,
+    "unwrap_error_frac": 0.0011,
+    "unwrap_error_frac_by_class": {
+     "grassland": 0.0006,
+     "built-up": 0.0008,
+     "bare / sparse": 0.002,
+     "herbaceous wetland": 0.0017,
+     "moss and lichen": 0.0005
+    },
+    "bias_mm_by_class": {
+     "grassland": {
+      "mean": -0.69,
+      "se": 0.01,
+      "n_px": 402464
+     },
+     "built-up": {
+      "mean": -0.65,
+      "se": 0.08,
+      "n_px": 16844
+     },
+     "bare / sparse": {
+      "mean": -0.31,
+      "se": 0.02,
+      "n_px": 168496
+     },
+     "herbaceous wetland": {
+      "mean": -0.99,
+      "se": 0.03,
+      "n_px": 194923
+     },
+     "moss and lichen": {
+      "mean": -0.63,
+      "se": 0.01,
+      "n_px": 623311
+     }
+    },
+    "bias_local_mm_by_class": {
+     "grassland": {
+      "mean": -0.01,
+      "se": 0.01,
+      "n_px": 399506
+     },
+     "built-up": {
+      "mean": 0.0,
+      "se": 0.08,
+      "n_px": 16714
+     },
+     "bare / sparse": {
+      "mean": 0.09,
+      "se": 0.02,
+      "n_px": 168180
+     },
+     "herbaceous wetland": {
+      "mean": -0.05,
+      "se": 0.03,
+      "n_px": 189545
+     },
+     "moss and lichen": {
+      "mean": -0.01,
+      "se": 0.01,
+      "n_px": 622603
+     }
+    }
+   },
+   {
+    "triplet": [
+     "20250731",
+     "20250812",
+     "20250905"
+    ],
+    "valid_frac": 0.563,
+    "unwrap_error_frac": 0.0069,
+    "unwrap_error_frac_by_class": {
+     "grassland": 0.0073,
+     "built-up": 0.0003,
+     "bare / sparse": 0.0017,
+     "herbaceous wetland": 0.0236,
+     "moss and lichen": 0.0062
+    },
+    "bias_mm_by_class": {
+     "grassland": {
+      "mean": -0.53,
+      "se": 0.02,
+      "n_px": 326294
+     },
+     "built-up": {
+      "mean": -0.03,
+      "se": 0.06,
+      "n_px": 17291
+     },
+     "bare / sparse": {
+      "mean": -0.09,
+      "se": 0.01,
+      "n_px": 167217
+     },
+     "herbaceous wetland": {
+      "mean": -0.73,
+      "se": 0.05,
+      "n_px": 103791
+     },
+     "moss and lichen": {
+      "mean": -0.4,
+      "se": 0.01,
+      "n_px": 552878
+     }
+    },
+    "bias_local_mm_by_class": {
+     "grassland": {
+      "mean": -0.06,
+      "se": 0.02,
+      "n_px": 323593
+     },
+     "built-up": {
+      "mean": 0.2,
+      "se": 0.06,
+      "n_px": 17179
+     },
+     "bare / sparse": {
+      "mean": 0.1,
+      "se": 0.01,
+      "n_px": 166823
+     },
+     "herbaceous wetland": {
+      "mean": -0.05,
+      "se": 0.05,
+      "n_px": 102606
+     },
+     "moss and lichen": {
+      "mean": -0.03,
+      "se": 0.01,
+      "n_px": 552434
+     }
+    }
+   }
+  ],
+  "closure_mean_bias_local_by_class": {
+   "grassland": {
+    "mean": -0.02,
+    "se": 0.01,
+    "n_px": 422687
+   },
+   "built-up": {
+    "mean": 0.07,
+    "se": 0.05,
+    "n_px": 18734
+   },
+   "bare / sparse": {
+    "mean": 0.09,
+    "se": 0.01,
+    "n_px": 174624
+   },
+   "herbaceous wetland": {
+    "mean": -0.04,
+    "se": 0.02,
+    "n_px": 201001
+   },
+   "moss and lichen": {
+    "mean": -0.02,
+    "se": 0.01,
+    "n_px": 636923
+   }
+  },
+  "network": {
+   "span": [
+    "20250613",
+    "20250905"
+   ],
+   "n_short": 6,
+   "n_long": 3,
+   "px_all_pairs": 304126,
+   "short_local_mm": {
+    "grassland": {
+     "mean": -1.0,
+     "se": 0.17,
+     "n_px": 33461
+    },
+    "built-up": {
+     "mean": 1.3,
+     "se": 0.27,
+     "n_px": 9407
+    },
+    "bare / sparse": {
+     "mean": 1.65,
+     "se": 0.16,
+     "n_px": 30357
+    },
+    "herbaceous wetland": {
+     "mean": -3.24,
+     "se": 0.5,
+     "n_px": 6722
+    },
+    "moss and lichen": {
+     "mean": -0.42,
+     "se": 0.09,
+     "n_px": 117201
+    }
+   },
+   "long_local_mm": {
+    "grassland": {
+     "mean": -0.19,
+     "se": 0.18,
+     "n_px": 33461
+    },
+    "built-up": {
+     "mean": 0.9,
+     "se": 0.25,
+     "n_px": 9407
+    },
+    "bare / sparse": {
+     "mean": 1.01,
+     "se": 0.15,
+     "n_px": 30357
+    },
+    "herbaceous wetland": {
+     "mean": -2.6,
+     "se": 0.52,
+     "n_px": 6722
+    },
+    "moss and lichen": {
+     "mean": -0.24,
+     "se": 0.09,
+     "n_px": 117201
+    }
+   },
+   "sbas_local_mm": {
+    "grassland": {
+     "mean": -0.52,
+     "se": 0.14,
+     "n_px": 33461
+    },
+    "built-up": {
+     "mean": 0.94,
+     "se": 0.24,
+     "n_px": 9407
+    },
+    "bare / sparse": {
+     "mean": 1.31,
+     "se": 0.15,
+     "n_px": 30357
+    },
+    "herbaceous wetland": {
+     "mean": -2.77,
+     "se": 0.46,
+     "n_px": 6722
+    },
+    "moss and lichen": {
+     "mean": -0.25,
+     "se": 0.08,
+     "n_px": 117201
+    }
+   },
+   "short_minus_long_local_mm": {
+    "grassland": {
+     "mean": -0.81,
+     "se": 0.2,
+     "n_px": 33461
+    },
+    "built-up": {
+     "mean": 0.4,
+     "se": 0.25,
+     "n_px": 9407
+    },
+    "bare / sparse": {
+     "mean": 0.64,
+     "se": 0.11,
+     "n_px": 30357
+    },
+    "herbaceous wetland": {
+     "mean": -0.64,
+     "se": 0.37,
+     "n_px": 6722
+    },
+    "moss and lichen": {
+     "mean": -0.19,
+     "se": 0.08,
+     "n_px": 117201
+    }
+   }
+  },
+  "dem_error": {
+   "baselines_m": [
+    0.0,
+    -40.6,
+    62.0,
+    164.5,
+    40.5,
+    29.1,
+    138.9
+   ],
+   "r_baseline_vs_sqrt_tdd": 0.626,
+   "slope_bias_mm_per_sqrt_tdd_per_m_dem_error": 0.0107,
+   "seasonal_local_without_dem_term": {
+    "grassland": {
+     "mean": 0.53,
+     "se": 0.12,
+     "n_px": 152684
+    },
+    "built-up": {
+     "mean": 0.17,
+     "se": 0.31,
+     "n_px": 13268
+    },
+    "bare / sparse": {
+     "mean": 1.51,
+     "se": 0.17,
+     "n_px": 43794
+    },
+    "herbaceous wetland": {
+     "mean": -4.5,
+     "se": 0.21,
+     "n_px": 71288
+    },
+    "moss and lichen": {
+     "mean": 0.6,
+     "se": 0.08,
+     "n_px": 252999
+    }
+   },
+   "seasonal_local_with_dem_term": {
+    "grassland": {
+     "mean": 0.85,
+     "se": 0.11,
+     "n_px": 152684
+    },
+    "built-up": {
+     "mean": 0.45,
+     "se": 0.29,
+     "n_px": 13268
+    },
+    "bare / sparse": {
+     "mean": 1.4,
+     "se": 0.17,
+     "n_px": 43794
+    },
+    "herbaceous wetland": {
+     "mean": -4.59,
+     "se": 0.2,
+     "n_px": 71288
+    },
+    "moss and lichen": {
+     "mean": 0.81,
+     "se": 0.08,
+     "n_px": 252999
+    }
+   },
+   "dem_error_m_by_class": {
+    "grassland": {
+     "mean": 3.95,
+     "se": 0.25,
+     "n_px": 163860
+    },
+    "built-up": {
+     "mean": 8.93,
+     "se": 0.44,
+     "n_px": 13399
+    },
+    "bare / sparse": {
+     "mean": 9.25,
+     "se": 0.29,
+     "n_px": 47660
+    },
+    "herbaceous wetland": {
+     "mean": 9.42,
+     "se": 0.26,
+     "n_px": 75524
+    },
+    "moss and lichen": {
+     "mean": 4.78,
+     "se": 0.13,
+     "n_px": 271054
+    }
+   },
+   "dem_error_needed_to_fake_wetland_m": -14.8
+  },
+  "full_network_frac": 0.258
+ },
+ "selection": {
+  "2020": {
+   "all_pixels": {
+    "grassland": {
+     "mean": -0.81,
+     "se": 0.1,
+     "n_px": 251410
+    },
+    "built-up": {
+     "mean": 3.47,
+     "se": 0.28,
+     "n_px": 13660
+    },
+    "bare / sparse": {
+     "mean": 3.04,
+     "se": 0.17,
+     "n_px": 45049
+    },
+    "herbaceous wetland": {
+     "mean": -5.1,
+     "se": 0.21,
+     "n_px": 86024
+    },
+    "moss and lichen": {
+     "mean": 0.15,
+     "se": 0.08,
+     "n_px": 298587
+    }
+   },
+   "full_network_both_summers": {
+    "grassland": {
+     "mean": 3.23,
+     "se": 0.18,
+     "n_px": 27117
+    },
+    "built-up": {
+     "mean": 4.1,
+     "se": 0.32,
+     "n_px": 7891
+    },
+    "bare / sparse": {
+     "mean": 3.8,
+     "se": 0.17,
+     "n_px": 32012
+    },
+    "herbaceous wetland": {
+     "mean": 2.73,
+     "se": 0.51,
+     "n_px": 5152
+    },
+    "moss and lichen": {
+     "mean": 3.06,
+     "se": 0.1,
+     "n_px": 110188
+    }
+   }
+  },
+  "2025": {
+   "all_pixels": {
+    "grassland": {
+     "mean": 0.53,
+     "se": 0.12,
+     "n_px": 152684
+    },
+    "built-up": {
+     "mean": 0.17,
+     "se": 0.31,
+     "n_px": 13268
+    },
+    "bare / sparse": {
+     "mean": 1.51,
+     "se": 0.17,
+     "n_px": 43794
+    },
+    "herbaceous wetland": {
+     "mean": -4.5,
+     "se": 0.21,
+     "n_px": 71288
+    },
+    "moss and lichen": {
+     "mean": 0.6,
+     "se": 0.08,
+     "n_px": 252999
+    }
+   },
+   "full_network_both_summers": {
+    "grassland": {
+     "mean": 1.52,
+     "se": 0.13,
+     "n_px": 26918
+    },
+    "built-up": {
+     "mean": 1.18,
+     "se": 0.25,
+     "n_px": 7891
+    },
+    "bare / sparse": {
+     "mean": 2.01,
+     "se": 0.14,
+     "n_px": 31786
+    },
+    "herbaceous wetland": {
+     "mean": -0.22,
+     "se": 0.47,
+     "n_px": 5150
+    },
+    "moss and lichen": {
+     "mean": 1.19,
+     "se": 0.07,
+     "n_px": 109124
+    }
+   }
+  },
+  "r_local_full_network": 0.313
+ },
+ "network_replication_r": {
+  "short": 0.365,
+  "long": 0.156,
+  "sbas": 0.267
+ }
+}
