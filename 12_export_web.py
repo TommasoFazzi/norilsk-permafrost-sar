@@ -336,15 +336,15 @@ def story(allsum, local, rob, tank18, checks, gnss):
     S = []
     S.append({"id": "question", "headline": "Was the ground under Norilsk sinking, and did that bring down tank 5?",
               "text": "On 29 May 2020 fuel tank no. 5 of the TPP-3 power plant collapsed and ~21,000 t of "
-                      "diesel reached the Ambarnaya river. One study (Zhang et al. 2022) blamed thawing "
-                      "permafrost; the federal inspectorate (Rostekhnadzor, Nov 2020) blamed the pile "
+                      "diesel reached the Ambarnaya river. One study (Zhang et al. 2022) blamed permafrost "
+                      "degradation; the federal inspectorate (Rostekhnadzor, Nov 2020) blamed the pile "
                       "foundation. We measured ground motion with radar satellites 2017-2026.",
               "datasets": ["images/s2_spill_20200531.png", "vectors/sites.geojson"]})
     if allsum and local and rob:
         r = [v["r"] for v in allsum["pairs"].values()]
         z = [v["z"] for v in allsum["pairs"].values()]
         nis = rob["nisar_wetland"]
-        S.append({"id": "thaw", "headline": "Wetlands sink every summer, as thawing ground should, and the rate is not growing",
+        S.append({"id": "thaw", "headline": "Wetlands sink every summer as the active layer thaws, and the rate is not growing",
                   "text": "Compared with their ~2 km surroundings, herbaceous wetlands sink every summer in "
                           "proportion to the square root of accumulated thaw (Stefan's law), with the same "
                           "coefficient in all six summers 2017-2025: no sign of acceleration. The same places "
@@ -398,26 +398,31 @@ def story(allsum, local, rob, tank18, checks, gnss):
             "sections": S, "credit": CREDIT}
 
 
-TANK_HEADLINE = "No ground subsidence under tank 5 in the thaw seasons; a small, local settlement in its last winter"
+TANK_HEADLINE = "No extra settlement of tank 5 in the thaw seasons; a small, local settlement in its last winter"
 TANK_TEXT = ("Relative to the structures around it, tank 5 did not sink in the snow-free summers 2017-2019, "
-             "when thawing ground would settle; the steady -35 mm/yr of Zhang et al. 2022 is not seen. "
-             "In its last winter (Dec 2019 - Apr 2020), while the ground was frozen, tank 5 alone settled "
+             "when the active layer thaws; the steady -35 mm/yr of Zhang et al. 2022 is not seen. "
+             "In its last winter (Dec 2019 - Apr 2020), while the active layer was frozen, tank 5 alone settled "
              "about 1.5 cm relative to its surroundings, step by step from January; none of 20 other tanks "
-             "and tank-row structures did, including the one 117 m away. The result survives every check "
-             "we could run (unwrapping, median, weighting, height error, leaving out any single image). "
-             "It fits a failing foundation; it is strong evidence of movement, not proof of its cause.")
+             "and tank-row structures did, including the one 117 m away. It passes the checks we could "
+             "run (unwrapping, median, weighting, height error, leaving out any single image), but it rests "
+             "on a few low-coherence winter pairs and a snow drift cannot be fully excluded: a hint that "
+             "fits a failing foundation, not proof.")
 TANK_CAVEATS = ("Dry snow delays the radar (~1 mm per mm of snow water): a drift at the tank could mimic "
                 "settlement, although the steps do not follow blowing-snow episodes and the neighbouring tank "
                 "did not move; tanks elsewhere show ~1 cm excursions in other periods (snow onset, autumn 2019). "
                 "One track, one sensor, 20 m pixels (no tilt); whole-tank motion cannot be compared with damage "
                 "thresholds, which refer to differences within one tank.")
-VERDICT_HEADLINE = "Foundation failure, not ground thaw"
-VERDICT_TEXT = ("The radar shows no thaw-driven settlement of the ground at the tank or the plant before the "
-                "collapse, and no regional subsidence of the bedrock. This agrees with the inspectorate's "
-                "finding: pile cap and piles too weak (33 piles failed in a chain, ~30% not on rock), tank "
-                "returned to service in 2019 without notifying the regulator, no permafrost degradation found. "
-                "Permafrost thaw is real in Norilsk - wetlands sink every summer - but it is not what the data "
-                "show at tank 5. Warming of the frozen ground around the piles cannot be ruled out.")
+VERDICT_HEADLINE = "A failing foundation fits better than thawing ground"
+VERDICT_TEXT = ("Thawing ground here means permafrost degradation: the active layer thawing deeper than "
+                "usual into the ice-rich top of the permafrost, which would show as extra settlement in the "
+                "thaw season. Before the collapse the radar shows none at the tank or the plant, and a small "
+                "settlement of the tank itself in its last winter, while the active layer was frozen. This is "
+                "consistent with the inspectorate's finding, which remains the main evidence for the cause: "
+                "pile cap and piles too weak (33 piles failed in a chain, ~30% not on rock), tank returned to "
+                "service in 2019 without notifying the regulator, no permafrost degradation found. Seasonal "
+                "thaw of the active layer is real in Norilsk - wetlands sink every summer - but it is not what "
+                "the data show at tank 5. Warming of the frozen ground around the piles, and a uniform "
+                "settlement of the whole area, cannot be ruled out.")
 LIMITS_TEXT = ("No radar data over Norilsk in 2022-2024; motion of the lowland relative to bedrock is "
                "atmosphere-dominated; C-band loses the signal at snowmelt and snow onset, so winter and "
                "summer cannot be linked; settlement within one tank (tilt) is below the 20 m resolution; "
@@ -459,7 +464,7 @@ def app_stories(man, allsum, tank18, gnss):
     if allsum:
         out.append({
             "id": "norilsk-permafrost-thaw", "regionId": "norilsk",
-            "title": "Thawing ground: Norilsk's wetlands sink every summer", "category": "water",
+            "title": "Seasonal thaw: Norilsk's wetlands sink every summer", "category": "water",
             "firstYear": 2020, "mapEndYear": 2026, "dateLabel": "Radar summers 2017–2025 · NISAR 2026",
             "latitude": 69.38, "longitude": 87.8, "cameraAltitude": 60000, "beforeYear": 2020, "afterYear": 2025,
             "summary": ("Sentinel-1 radar shows Norilsk's herbaceous wetlands sinking a few millimetres more than "
@@ -487,11 +492,11 @@ def app_stories(man, allsum, tank18, gnss):
             "latitude": POINTS["tank5_zhang2022"][0], "longitude": POINTS["tank5_zhang2022"][1],
             "cameraAltitude": 6000, "beforeYear": 2020, "afterYear": 2021,
             "summary": ("Radar shows tank 5 did not sink relative to the structures around it in the snow-free "
-                        f"summers 2017–2019, when thawing ground settles{bedrock}. In its last winter, with the "
-                        f"ground frozen, the tank alone settled about {abs(pv[last]['value']):.0f} mm "
+                        f"summers 2017–2019, when the active layer thaws{bedrock}. In its last winter, with the "
+                        f"active layer frozen, the tank alone settled about {abs(pv[last]['value']):.0f} mm "
                         f"(comparable targets {pv[last]['null_mean']:+.1f} ± {pv[last]['null_std']:.1f} mm); "
                         "none of 20 other tanks did. This fits the inspectorate's finding of a failing pile "
-                        "foundation, not permafrost thaw."),
+                        "foundation better than permafrost degradation."),
             "lookFor": ("The marker is tank 5 in the fuel-tank row north-west of TPP-3. Compare the 2020 and 2021 "
                         "mosaics; the radar measurements are in the Norilsk subsidence dataset when connected."),
             "limitation": ("Evidence of movement, not proof of its cause: snow drifts can mimic settlement in "

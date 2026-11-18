@@ -96,7 +96,7 @@ def main():
     ax.plot([t0, pd.Timestamp("2020-05-29")], [0, -30.8 * 1.76], "k:", label="Zhang 2022 area mean, -30.8 mm/yr")
     ax.axvline(pd.Timestamp("2020-05-29"), color="red", lw=0.8)
     ax.set_ylabel("vertical [mm], + up (vs 2017 mean)")
-    ax.set_title("GNSS NRIL (Norilsk, on bedrock): no regional subsidence", fontsize=10)
+    ax.set_title("GNSS NRIL (Norilsk, on bedrock): the bedrock is not sinking", fontsize=10)
     ax.legend(fontsize=8)
     fig.tight_layout()
     fig.savefig(OUTPUTS / "fig_gnss_nril.png", dpi=110)

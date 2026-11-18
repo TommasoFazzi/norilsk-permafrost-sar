@@ -9,52 +9,72 @@ analysis (steps 18-20).
 
 ## Final conclusions
 
-**Question.** Is the permafrost ground under Norilsk sinking, and did that
-bring down fuel tank no. 5 of TPP-3 on 29 May 2020 (thaw, as Zhang et al.
-2022 proposed), or did the tank's foundation fail (as the federal
-inspectorate Rostekhnadzor concluded in Nov 2020)?
+**Question.** Did the ground under fuel tank no. 5 of TPP-3 sink because the
+permafrost was degrading, and did that bring the tank down on 29 May 2020
+(Zhang et al. 2022), or did the tank's pile foundation fail (the federal
+inspectorate Rostekhnadzor, Nov 2020)?
 
-1. **Thaw subsidence is real, local and steady.** Herbaceous wetlands sink a
-   few mm more than their ~2 km surroundings every summer, following √TDD
-   (Stefan) with the same coefficient in all six summers 2017-2025
-   (−0.195 ± 0.009 mm/√(°C·day), constant p = 0.07, no acceleration); the
-   pattern repeats between any two summers (r 0.15-0.43, z ≥ 6.3) and NISAR
-   L-band sees it in 2026. Lowland motion relative to bedrock is not
-   measurable (atmosphere).
+**Terms.** Permafrost stays frozen all year. Above it, the active layer (the
+top metre or two) thaws every summer and refreezes every winter: the surface
+settles in summer and rises again in winter. *Thawing ground* below means
+permafrost degradation: the active layer thawing deeper than usual into the
+ice-rich top of the permafrost, which shows as extra settlement late in the
+thaw season (Jul-Oct) that does not recover. All InSAR numbers are relative
+to the surroundings of each target.
+
+1. **Seasonal thaw of the active layer is real, local and steady.**
+   Herbaceous wetlands sink a few mm more than their ~2 km surroundings every
+   summer, following √TDD (Stefan) with the same coefficient in all six
+   summers 2017-2025 (−0.195 ± 0.009 mm/√(°C·day), constant p = 0.07, no
+   acceleration); the pattern repeats between any two summers (r 0.15-0.43,
+   z ≥ 6.3) and NISAR L-band sees it in 2026. Lowland motion relative to
+   bedrock is not measurable (atmosphere).
 2. **Industry is not sinking more than other ground.** Industrial zones are
    indistinguishable from random lowland (z 0.24 / 0.07); TPP-3 never sinks
-   more than its surroundings (2017-2026).
-3. **No ground subsidence under tank 5 when thaw acts.** In the snow-free
-   summers 2017-2019 and the last thaw season (Jun-Nov 2019) the tank moved
-   like comparable targets (|z| ≤ 0.7); Zhang's steady −35 mm/yr is not seen
-   relative to the surroundings. The bedrock under Norilsk (GNSS NRIL) rose
-   slightly (+3.0 ± 0.6 mm/yr 2017-2020): no regional subsidence.
-4. **The tank alone moved in its last winter.** From December 2019 to
-   March-April 2020, with the ground frozen, tank 5 settled ~14 mm relative to
-   its surroundings, step by step from January (z −4.2 against 165 comparable
-   targets; none of 20 other tanks and tank-row structures, including the one
-   117 m away, did). It survives every check: no unwrapping errors, median
-   −13.8, coherence-weighted −15.1, height-error-corrected −13.9, any single
-   pair left out −7.8 to −20.5 mm; it does not follow blowing-snow episodes.
-5. **Verdict: foundation failure, not ground thaw.** The radar shows no
-   thaw-driven settlement before the collapse and a settlement of the tank
-   itself in its final months, while the ground was frozen. This matches the
-   inspection (pile cap and piles too weak, 33 piles failed in a chain, ~30 %
-   not on rock, tank returned to service in 2019 without notifying the
-   regulator, no permafrost degradation found).
+   more than its surroundings in the summers 2017-2026.
+3. **No extra settlement of tank 5 in the thaw seasons.** In the snow-free
+   summers 2017-2019 and the last thaw season (Jun-Nov 2019), when the active
+   layer thaws, the tank moved like comparable targets (|z| ≤ 0.7; detectable:
+   ~1 cm per season); Zhang's steady −35 mm/yr is not seen relative to the
+   surroundings. The GNSS station NRIL shows that the bedrock under Norilsk
+   did not sink (+3.0 ± 0.6 mm/yr 2017-2020); it says nothing about the
+   lowland ground above the bedrock, and a uniform settlement of the whole
+   area around the tank would be invisible to these relative measures.
+4. **In its last winter the tank alone settled, by a small amount.** From
+   6 Dec 2019 to 4 Apr 2020, with the active layer frozen, tank 5 settled
+   14.4 mm relative to its surroundings, step by step from January. Only 1 of
+   121 comparable targets (bright, same winter coherence, 1.5-5.5 km away)
+   deviated as much (z −2.75, p ≈ 0.01); none of 20 other tanks and tank-row
+   structures did, including the one 117 m away. It passes the checks we could
+   run on the existing data (no unwrapping errors; median −13.8,
+   coherence-weighted −15.1, height-error-corrected −13.9 mm; any single pair
+   left out −7.8 to −20.5 mm) and does not follow blowing-snow episodes. But
+   it rests on a few low-coherence winter pairs, single tanks elsewhere show
+   ~1 cm excursions in other periods, and a snow drift cannot be fully
+   excluded: a hint, not proof.
+5. **Reading: this fits a failing foundation better than thawing ground.**
+   Before the collapse the radar shows no extra thaw-season settlement at the
+   tank or the plant, which thawing ground (as defined above) would produce;
+   it shows a small settlement of the tank itself in its final months, while
+   the active layer was frozen. This is consistent with the inspection (pile
+   cap and piles too weak, 33 piles failed in a chain, ~30 % not on rock,
+   tank returned to service in 2019 without notifying the regulator, no
+   permafrost degradation found), which remains the main evidence for the
+   cause.
 
 **What remains open.** Warming (not thawing) of the frozen ground around the
-piles, which peaks at 6-12 m in winter, cannot be excluded; a snow drift
-cannot be fully excluded (tanks elsewhere show ~1 cm excursions in other
-periods); tilt within the tank is below the 20 m resolution; uniform
-settlement of a whole area is invisible to relative measures; one satellite
-track, no other radar archive available for 2019-20 (ASF has no ALOS-2 there).
+piles cannot be excluded: it weakens the piles without any thaw settlement,
+and at 6-12 m depth the yearly temperature peak arrives in winter. Also open:
+a snow drift at the tank (point 4); tilt within the tank, below the 20 m
+resolution; a uniform settlement of the whole area, invisible to relative
+measures; one satellite track, with no other radar archive for 2019-20 (ASF
+has no ALOS-2 there).
 
 ---
 
 # Full record
 
-> **v1 in one paragraph.** The local wetland subsidence survives every test
+> **v1 in one paragraph.** The local wetland subsidence passes every test
 > we could run on the existing data (processing variants, spatial-shift null
 > z = −6 to −9, phase closure, short- vs long-pair networks, DEM error, soil
 > moisture), follows √TDD with the **same coefficient in both summers**
@@ -71,9 +91,9 @@ track, no other radar archive available for 2019-20 (ASF has no ALOS-2 there).
 > ground under the tank (Zhang et al. 2022) is not supported. In the last
 > winter before the collapse (Dec 2019 - Apr 2020) the tank settled ~1.5 cm
 > relative to the plant (z = −2.75, p ≈ 0.01), progressively, while the
-> ground was frozen: consistent with a failing foundation (Rostekhnadzor),
-> but a hint, not proof (few noisy pairs, possible snow drift or partial
-> unwrapping error; see "Weak points"). Warming of the frozen ground around
+> active layer was frozen: consistent with a failing foundation (Rostekhnadzor),
+> but a hint, not proof (few noisy pairs, possible snow drift; step 19 rules
+> out unwrapping errors; see "Weak points"). Warming of the frozen ground around
 > the piles and uniform settlement of the whole area cannot be ruled out.
 
 ## One-paragraph answer
@@ -212,6 +232,8 @@ Sentinel-1. Track 6 descending covers only the south-west half of the AOI.
    the foundation of tank no. 5. The two literature coordinates for the tank
    could not be resolved with Sentinel-1 amplitude (snowmelt in spring,
    no clear disappearing target in summer); we use the OSM TPP-3 site.
+   (v0. Superseded: at 20 m, step 18 locates the tank by its amplitude loss
+   after the collapse, confirmed on Google Earth.)
 6. **Two summers.** 2020 was exceptionally warm (MAAT −3.7 °C, TDD 1752),
    2025 colder (−7.4 °C, 1435). Two summers can show a zone difference, not a
    climate trend.
@@ -425,7 +447,7 @@ dominated by snow and atmosphere (our steps 15-17).
   thaw seasons 2017-2019 (Jun-Nov 2019: −1 mm). The one anomalous movement
   happened in Dec-Apr, when the active layer is frozen, and was confined to
   one tank, not the ground of the tank farm.
-- *Foundation of tank 5*: supported. A ~1.5 cm (up to ~2 cm in the
+- *Foundation of tank 5*: consistent with the data. A ~1.5 cm (up to ~2 cm in the
   strongest pixel) settlement of that tank relative to the plant, building up
   over the 4-5 months before the collapse, matches Rostekhnadzor's finding
   (insufficient bearing capacity of the pile cap and piles, chain failure of
@@ -477,10 +499,10 @@ depots 9-13 km east); tank 5's numbers are unchanged.
 | Unwrapping error in the 3x3 mean | triplet closures, winter 2019-20 | none over half a cycle (tank window 0/12, its pixels 0/43; null windows 0.2 %); no pixel off by a cycle |
 | Few noisy pairs | median window; coherence-weighted SBAS; leave one pair out | Dec 6 → Apr 4: −13.8 / −15.1 mm; any single pair out: −7.8 to −20.5 (→ Mar 11: −12.8 to −15.3) |
 | DEM (height) error | linear trend + per-date baseline term | Δh 9.8 m, corrected −13.9 mm |
-| Null not tank-like | 19 depot tanks + tank-row structures | same winter: depot tanks −2.9 ± 4.8 mm (n 19), neighbour 117 m SE +1.6; 0 of 20 as low as tank 5; generic null (tank 5's coherence) +2.1 ± 3.9, z −4.2 |
+| Null not tank-like | 19 depot tanks + tank-row structures | same winter: depot tanks −2.9 ± 4.8 mm (n 19), neighbour 117 m SE +1.6; 0 of 20 as low as tank 5. The wider crop also gives a second random draw of 200 comparable targets (same rule as step 18): +2.1 ± 3.9 mm (n 165), none as low, z −4.2. The z depends on the draw, so the headline keeps the more conservative step-18 value (z −2.75, 1 of 121) |
 | Snow drift | ERA5 snowfall and blowing-snow hours between acquisitions | 2019-20 was the snowiest (196 cm) and windiest (1096 h, from S) of the three winters, but the tank's steps do not follow blowing snow (r −0.09; 2018-19: r 0.56 with no drop) and the neighbour in the same row did not move |
 | Position | Google Earth (user) + amplitude loss | confirmed |
-| Regional subsidence | GNSS NRIL on bedrock (step 20) | +1.65 mm/yr 2000-2023, +3.0 ± 0.6 mm/yr 2017-2020, seasonal ±8 mm |
+| Bedrock motion | GNSS NRIL on bedrock (step 20) | +1.65 mm/yr 2000-2023, +3.0 ± 0.6 mm/yr 2017-2020, seasonal ±8 mm: the bedrock is not sinking; says nothing about the lowland ground above it |
 
 Not exclusive to tank 5 in other periods: at snow onset 2017 the whole TPP-3
 row dropped 11-20 mm (tank 5 −13.7), and the depot tanks moved −12.7 ± 4.1 mm

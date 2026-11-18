@@ -188,10 +188,11 @@ Findings: RESULTS.md, section "v1 robustness".
 
 ## Before analysis
 
-- `config.py`: the HPP-3 tank location differs between sources (two points
-  kept, unresolved; see `tank_amplitude.py`). Best estimate: `tank5_zhang2022`
-  (Zhang et al. 2022, Remote Sens. 14, 5036), 0.35 km from the TPP-3 polygon;
-  `hpp3_tank_b` is the generic Wikipedia coordinate, 9 km away. `tundra_control` is still a
+- `config.py`: two tank coordinates from the literature. `tank5_zhang2022`
+  (Zhang et al. 2022, Remote Sens. 14, 5036), 0.35 km from the TPP-3 polygon,
+  is the tank: confirmed on Google Earth and by its radar amplitude loss after
+  the collapse (step 18). `hpp3_tank_b` is the generic Wikipedia coordinate,
+  9 km away. `tundra_control` is still a
   placeholder: choose it from `tundra_candidate_v2.tif`.
 - `plateau_reference` sits at the east edge of BBOX: most of the plateau is
   outside the AOI. Extending BBOX east (~88.9 E) is likely free in bursts.
